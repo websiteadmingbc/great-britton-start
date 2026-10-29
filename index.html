@@ -36,7 +36,8 @@
   .card{background:var(--panel);border:1px solid var(--line);padding:26px}
   .card h3{font-size:1.6rem;margin-bottom:8px}
   .card p{color:var(--muted);font-size:.95rem}
-  .card .range{display:block;color:var(--gold);font-weight:700;font-size:.85rem;margin-top:12px;letter-spacing:.06em}
+  .card .tag{display:block;color:var(--gold);font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px}
+  .card .note{display:block;color:var(--gold);font-size:.8rem;font-weight:700;margin-top:12px}
   ol.steps{list-style:none;counter-reset:s;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
   ol.steps li{counter-increment:s;border-left:2px solid var(--gold);padding:4px 0 4px 18px}
   ol.steps li::before{content:"0" counter(s);display:block;font-family:"Barlow Condensed",sans-serif;color:var(--gold);font-size:1.4rem;font-weight:700}
@@ -91,10 +92,13 @@
       <div class="eyebrow">What we build</div>
       <h2>Home projects we take on</h2>
       <div class="grid">
-        <div class="card"><h3>Bathroom remodels</h3><p>Showers, tubs, tile, vanities and full layout changes.</p></div>
-        <div class="card"><h3>Kitchen remodels</h3><p>Cabinets, counters, layout changes and full kitchen renovations.</p></div>
-        <div class="card"><h3>Additions &amp; ADUs</h3><p>More living space, from room additions to accessory dwelling units.</p></div>
-        <div class="card"><h3>Retaining walls</h3><p>Structural retaining walls, foundations and concrete work.</p></div>
+        <div class="card"><span class="tag">01 / Core</span><h3>ADU Construction</h3><p>Accessory dwelling units, additions, site coordination and construction.</p></div>
+        <div class="card"><span class="tag">02 / Systems</span><h3>Electrical</h3><p>Electrical installations, upgrades and improvements.</p><span class="note">C10 license coming soon · inquiries welcome</span></div>
+        <div class="card"><span class="tag">03 / Energy</span><h3>Solar</h3><p>Solar installations and electrical integration.</p><span class="note">C46 license coming soon · inquiries welcome</span></div>
+        <div class="card"><span class="tag">04 / Structure</span><h3>Framing</h3><p>Structural wood and metal framing for construction and additions.</p></div>
+        <div class="card"><span class="tag">05 / Structure</span><h3>Foundations</h3><p>Foundation construction, concrete and structural groundwork.</p></div>
+        <div class="card"><span class="tag">06 / Planning</span><h3>Engineering</h3><p>Engineering coordination and structural project planning.</p></div>
+        <div class="card"><span class="tag">07 / General B</span><h3>Remodeling</h3><p>Kitchen, bathroom and full-property improvements.</p></div>
       </div>
     </div>
   </section>
