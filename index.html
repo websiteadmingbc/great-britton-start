@@ -55,6 +55,9 @@
     .sticky .btn{flex:1;text-align:center;padding:14px 10px}
     body{padding-bottom:76px}
   }
+  .toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;background:var(--panel);color:var(--text);border:1px solid var(--gold);padding:14px 18px;border-radius:2px;font-size:.95rem;z-index:50;max-width:calc(100% - 32px);text-align:center}
+  .toast.show{opacity:1;transform:translate(-50%,0);pointer-events:auto}
+  .toast a{color:var(--gold);font-weight:700;margin-left:8px}
 </style>
 </head>
 <body>
@@ -133,6 +136,32 @@
   <a class="btn ghost" href="sms:+14084553800">Text</a>
   <a class="btn ghost" href="mailto:dylan@greatbrittongc.com?subject=Remodel%20estimate%20request">Email</a>
 </div>
-<script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+document.getElementById('y').textContent=new Date().getFullYear();
+(function(){
+  var EMAIL='dylan@greatbrittongc.com';
+  var isTouch=window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+  if(isTouch) return; // phones/tablets: mailto opens the email app
+  var toast=document.getElementById('toast'),timer;
+  function show(href,copied){
+    toast.innerHTML='';
+    toast.appendChild(document.createTextNode(copied?'Email copied: '+EMAIL:'Email us at '+EMAIL));
+    var a=document.createElement('a');a.href=href;a.textContent='Open email app';
+    toast.appendChild(a);
+    toast.classList.add('show');clearTimeout(timer);
+    timer=setTimeout(function(){toast.classList.remove('show');},6000);
+  }
+  document.querySelectorAll('a[href^="mailto:"]').forEach(function(link){
+    link.addEventListener('click',function(e){
+      e.preventDefault();
+      var href=link.getAttribute('href');
+      if(navigator.clipboard&&window.isSecureContext){
+        navigator.clipboard.writeText(EMAIL).then(function(){show(href,true);},function(){show(href,false);});
+      }else{show(href,false);}
+    });
+  });
+})();
+</script>
 </body>
 </html>
