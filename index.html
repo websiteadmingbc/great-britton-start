@@ -142,16 +142,6 @@ textarea.field{min-height:120px;resize:vertical}
 .cond[hidden]{display:none}
 .cond>legend{float:left;width:100%;color:var(--gold);font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px}
 .cond>legend+*{clear:both}
-.upload{display:inline-flex;align-items:center;justify-content:center;min-height:50px;cursor:pointer}
-.upload input{position:absolute;opacity:0;width:1px;height:1px}
-.upload:focus-within{outline:2px solid var(--gold);outline-offset:3px}
-.photo-list{list-style:none;margin-top:12px;display:grid;gap:8px}
-.photo-list:empty{display:none}
-.photo-list li{display:flex;align-items:center;justify-content:space-between;gap:12px;border:1px solid var(--line);background:var(--bg);padding:4px 4px 4px 14px;font-size:.92rem}
-.photo-list .name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
-.photo-list .size{color:var(--muted);font-size:.8rem;margin-left:6px}
-.photo-remove{flex:none;min-height:44px;min-width:44px;padding:0 14px;background:none;border:0;color:var(--gold);font:inherit;font-weight:700;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
-.photo-count{color:var(--muted);font-size:.85rem;margin-top:8px}
 .inq-alert{color:var(--gold);font-weight:700;font-size:.95rem}
 .inq-alert:empty{display:none}
 .inq-alert{margin-bottom:16px}
@@ -588,17 +578,6 @@ html{scroll-behavior:auto}
 </div>
 </fieldset>
 
-<div class="q" id="photos-q">
-<span class="q-label" id="photos-label">Photos <span class="opt">(optional, up to 5 images, 10MB each)</span></span>
-<p class="q-hint" id="photos-hint">Photos of the space help us prepare for your estimate.</p>
-<label class="btn ghost upload">Add photos
-<input type="file" id="photos" name="photos" accept="image/*" multiple aria-describedby="photos-hint photo-count photo-msg">
-</label>
-<ul class="photo-list" id="photo-list" aria-label="Selected photos"></ul>
-<p class="photo-count" id="photo-count" aria-live="polite"></p>
-<p class="q-error" id="photo-msg" aria-live="polite"></p>
-</div>
-
 <div class="q">
 <label class="q-label" for="notes">Anything else we should know? <span class="opt">(optional)</span></label>
 <textarea class="field" id="notes" name="notes" rows="4" maxlength="2000"></textarea>
@@ -900,46 +879,6 @@ if(d.length===11&&d.charAt(0)==='1') d=d.slice(1);
 if(d.length===10) phone.value='('+d.slice(0,3)+') '+d.slice(3,6)+'-'+d.slice(6);
 });
 
-/* ---- Photos ---- */
-var MAX_FILES=5, MAX_BYTES=10*1024*1024;
-var photos=[];
-var photoInput=document.getElementById('photos');
-var photoList=document.getElementById('photo-list');
-var photoCount=document.getElementById('photo-count');
-var photoMsg=document.getElementById('photo-msg');
-function fmtSize(b){return b>=1048576?(b/1048576).toFixed(1)+' MB':Math.max(1,Math.round(b/1024))+' KB';}
-function renderPhotos(){
-photoList.innerHTML='';
-photos.forEach(function(f,idx){
-var li=document.createElement('li');
-var name=document.createElement('span');name.className='name';name.textContent=f.name;
-var size=document.createElement('span');size.className='size';size.textContent=fmtSize(f.size);
-name.appendChild(size);
-var rm=document.createElement('button');rm.type='button';rm.className='photo-remove';rm.textContent='Remove';
-rm.setAttribute('aria-label','Remove '+f.name);
-rm.addEventListener('click',function(){
-photos.splice(idx,1);renderPhotos();photoMsg.textContent='';
-var next=photoList.querySelectorAll('.photo-remove')[Math.min(idx,photos.length-1)];
-(next||photoInput).focus();
-});
-li.appendChild(name);li.appendChild(rm);photoList.appendChild(li);
-});
-photoCount.textContent=photos.length?(photos.length+' of '+MAX_FILES+' photos added'):'';
-}
-photoInput.addEventListener('change',function(){
-var rejected=[];
-[].forEach.call(photoInput.files||[],function(f){
-if(!/^image\//.test(f.type)){rejected.push(f.name+' (not an image)');return;}
-if(f.size>MAX_BYTES){rejected.push(f.name+' (over 10MB)');return;}
-if(photos.some(function(p){return p.name===f.name&&p.size===f.size;})) return;
-if(photos.length>=MAX_FILES){rejected.push(f.name+' (5 photo limit)');return;}
-photos.push(f);
-});
-photoInput.value='';
-renderPhotos();
-photoMsg.textContent=rejected.length?'Not added: '+rejected.join(', ')+'.':'';
-});
-
 /* ---- Lead score ---- */
 function leadScore(){
 var own=radioVal('ownership'),b=radioVal('budget'),t=radioVal('start_timeline');
@@ -1003,8 +942,6 @@ var vals=fd.getAll(n);
 fd.delete(n);
 if(form.querySelector('input[name="'+n+'"]:not(:disabled)')) fd.set(n,vals.join(', '));
 });
-fd.delete('photos');
-photos.forEach(function(f){fd.append('photos',f,f.name);});
 
 setSending(true);
 fetch(FORM_ENDPOINT_URL,{method:'POST',body:fd,headers:{'Accept':'application/json'}})
