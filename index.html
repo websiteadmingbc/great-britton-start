@@ -868,6 +868,21 @@ document.addEventListener('click',function(e){
   if(a) track('cta_click',{type:a.getAttribute('data-cta'),location:a.getAttribute('data-loc')||'page'});
 },true);
 
+/* ---- Mark visitor as coming from the start page (read by greatbrittongc.com for 30 days) ---- */
+(function(){
+  try{
+    if(/(^|\.)greatbrittongc\.com$/.test(location.hostname)){
+      document.cookie='gb_src=start; domain=greatbrittongc.com; path=/; max-age=2592000; SameSite=Lax; Secure';
+    }
+  }catch(e){}
+  document.querySelectorAll('a[href]').forEach(function(a){
+    try{
+      if(a.hostname.replace(/^www\./,'')!=='greatbrittongc.com') return;
+      var u=new URL(a.href); u.searchParams.set('ref','start'); a.href=u.toString();
+    }catch(e){}
+  });
+})();
+
 /* ---- GA4: clicks through to the main site ---- */
 document.addEventListener('click',function(e){
   var a=e.target.closest&&e.target.closest('a[href]');
