@@ -868,6 +868,27 @@ document.addEventListener('click',function(e){
   if(a) track('cta_click',{type:a.getAttribute('data-cta'),location:a.getAttribute('data-loc')||'page'});
 },true);
 
+/* ---- GA4: clicks through to the main site ---- */
+document.addEventListener('click',function(e){
+  var a=e.target.closest&&e.target.closest('a[href]');
+  if(!a) return;
+  var host=a.hostname.replace(/^www\./,'');
+  if(host==='greatbrittongc.com'){
+    track('start_to_main_click',{link_url:a.href,link_text:(a.textContent||'').trim().slice(0,100),transport_type:'beacon'});
+  }
+},true);
+
+/* ---- GA4: phone and email link clicks (same events as the main site) ---- */
+document.addEventListener('click',function(e){
+  var link=e.target.closest&&e.target.closest('a[href^="tel:"], a[href^="mailto:"]');
+  if(!link) return;
+  var area=link.closest('header, nav, section, footer');
+  track(link.href.indexOf('tel:')===0?'phone_click':'email_click',{
+    link_location:(area&&(area.id||area.tagName.toLowerCase()))||'page',
+    transport_type:'beacon'
+  });
+},true);
+
 /* ---- Desktop: copy email on mailto click ---- */
 (function(){
 var isTouch=window.matchMedia('(hover: none) and (pointer: coarse)').matches;
@@ -1170,7 +1191,7 @@ busy(btnSubmit,true,SUBMIT_LABEL);
 post(fd).then(function(){
 busy(btnSubmit,false,SUBMIT_LABEL);
 track('form_step_complete',{step:2});
-track('generate_lead',{project_type:detail.project_type,lead_score:detail.lead_score});
+track('generate_lead',{form:'start_inquiry',project_type:detail.project_type,lead_score:detail.lead_score});
 try{window.dispatchEvent(new CustomEvent('lead_submitted',{detail:detail}));}catch(err){}
 step3.disabled=false;
 showStep(2,true);
