@@ -129,6 +129,8 @@ section h2{font-size:clamp(2rem,5vw,3.2rem);margin:12px 0 28px}
 .ranges-foot{margin-top:6px}
 
 /* Reviews */
+.yelp-reviews{display:flex;flex-wrap:wrap;gap:16px;justify-content:center}
+.yelp-reviews .yelp-review,.yelp-reviews iframe{max-width:100%}
 .review blockquote{color:var(--text);font-size:1rem;margin:10px 0 14px}
 .review .stars{color:var(--gold);letter-spacing:.1em}
 .review cite{font-style:normal;color:var(--muted);font-size:.85rem}
@@ -374,19 +376,18 @@ footer a{display:inline-flex;align-items:center;min-height:44px}
 </div>
 </section>
 
-<!-- ===== Reviews (TODO: add 3–5 real Google reviews + profile link, then remove `hidden`) ===== -->
-<section id="reviews" data-todo="reviews" hidden>
+<!-- ===== Reviews (Yelp embeds: add more by copying a .yelp-review span with another review ID) ===== -->
+<section id="reviews">
 <div class="wrap">
 <div class="eyebrow">Reviews</div>
 <h2>What homeowners say</h2>
-<div class="grid">
-<article class="card review" data-todo="review-1"><div class="stars" aria-label="X out of 5 stars">★★★★★</div><blockquote>TODO: review quote</blockquote><cite>TODO: first name · city</cite></article>
-<article class="card review" data-todo="review-2"><div class="stars" aria-label="X out of 5 stars">★★★★★</div><blockquote>TODO: review quote</blockquote><cite>TODO: first name · city</cite></article>
-<article class="card review" data-todo="review-3"><div class="stars" aria-label="X out of 5 stars">★★★★★</div><blockquote>TODO: review quote</blockquote><cite>TODO: first name · city</cite></article>
+<div class="yelp-reviews">
+<span class="yelp-review" data-review-id="OgtnNCj_mbwXvipkjbB_7Q" data-hostname="www.yelp.com">Read <a href="https://www.yelp.com/biz/great-britton-construction-san-jose?hrid=OgtnNCj_mbwXvipkjbB_7Q" rel="nofollow noopener">this review</a> of <a href="https://www.yelp.com/biz/great-britton-construction-san-jose" rel="nofollow noopener">Great Britton Construction</a> on <a href="https://www.yelp.com" rel="nofollow noopener">Yelp</a></span>
 </div>
-<p class="projects-more"><a class="text-link" href="#" data-todo="google-profile-url">Read our reviews on Google →</a></p>
+<p class="projects-more"><a class="text-link" href="https://www.yelp.com/biz/great-britton-construction-san-jose" target="_blank" rel="noopener">Read our reviews on Yelp →</a></p>
 </div>
 </section>
+<script async src="https://www.yelp.com/embed/widgets.js"></script>
 
 <section>
 <div class="wrap">
