@@ -144,7 +144,7 @@ ol.steps span{color:var(--muted);font-size:.95rem}
 
 /* Team */
 .team{display:grid;gap:24px;align-items:center}
-@media (min-width:769px){.team{grid-template-columns:280px 1fr}}
+@media (min-width:769px){.team:has(img:not([hidden])){grid-template-columns:280px 1fr}}
 .team img{width:100%;aspect-ratio:4/5;object-fit:cover;border:1px solid var(--line);background:var(--panel)}
 .team h3{font-size:2rem}
 .team .role{color:var(--gold);font-weight:700;text-transform:uppercase;letter-spacing:.12em;font-size:.8rem;margin:6px 0 12px}
@@ -190,9 +190,8 @@ ol.steps span{color:var(--muted);font-size:.95rem}
 .q{border:0;margin:0 0 26px;padding:0;min-width:0}
 .q-label{display:block;font-weight:700;font-size:1rem;margin-bottom:10px;padding:0;line-height:1.35}
 .q-label .opt{color:var(--muted);font-weight:400;font-size:.85rem}
-.q-error{color:var(--gold);font-size:.88rem;font-weight:700;margin-top:8px}
+.q-error,.card .q-error{color:#e25555;font-size:.88rem;font-weight:400;margin-top:8px}
 .q-error:empty{display:none}
-.q-error::before{content:"! "}
 .inq-note{color:var(--gold);font-size:.88rem;font-weight:700;margin-top:10px}
 .inq-note:empty{display:none}
 .tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
@@ -287,7 +286,7 @@ footer a{display:inline-flex;align-items:center;min-height:44px}
 <div class="hero-copy">
 <div class="eyebrow">Bay Area Home Remodeling</div>
 <h1>Kitchens &amp; baths,<br><span>built to last.</span></h1>
-<p class="lede">Great Britton Construction remodels Bay Area kitchens and bathrooms, and builds additions, retaining walls and ADUs. One licensed team, clear communication, quality that holds up.</p>
+<p class="lede">Great Britton Construction brings your ideas to life, from kitchen and bathroom remodels to custom additions, ADUs, and more. Thoughtful design, quality craftsmanship, and a home you'll love coming back to.</p>
 <div class="ctas">
 <a class="btn" href="#estimate" data-cta="estimate" data-loc="hero">Get a free estimate</a>
 <a class="btn ghost" href="tel:+14084553800" data-cta="call" data-loc="hero">Call (408) 455-3800</a>
@@ -296,8 +295,8 @@ footer a{display:inline-flex;align-items:center;min-height:44px}
 <div class="trust">
 <div><b>CSLB #1025488</b> · Licensed General B</div>
 <div><b>Bay Area</b> · Residential projects</div>
-<!-- TODO: add real Google rating + review count, then remove `hidden` -->
-<div class="rating" data-todo="google-rating" hidden>★ <span data-rating>X.X</span> on Google · <span data-review-count>N</span> reviews</div>
+<!-- TODO: confirm actual Google rating + verified review count, then replace placeholders -->
+<div class="rating" data-todo="google-rating">★ <span data-rating>X.X</span> on Google · <span data-review-count>N</span> reviews</div>
 </div>
 </div>
 <figure class="hero-media">
@@ -359,7 +358,7 @@ footer a{display:inline-flex;align-items:center;min-height:44px}
 <div class="card"><span class="tag">01 / Kitchens</span><h3>Kitchen remodels</h3><p>Cabinets, countertops, islands, layout changes and finish work.</p></div>
 <div class="card"><span class="tag">02 / Bathrooms</span><h3>Bathroom remodels</h3><p>Showers, tubs, vanities, tile and layout changes.</p></div>
 <div class="card"><span class="tag">03 / ADUs</span><h3>ADUs &amp; additions</h3><p>Accessory dwelling units, additions, site coordination and construction.</p></div>
-<div class="card"><span class="tag">04 / Sitework</span><h3>Retaining walls</h3><p>Retaining wall construction for residential properties.</p></div>
+<div class="card"><span class="tag">04 / Sitework</span><h3>Retaining walls</h3><p>Strong, well-built retaining walls that add stability, function, and lasting value to your property.</p></div>
 <div class="card"><span class="tag">05 / Structure</span><h3>Structural work</h3><p>Framing, foundations and engineering coordination for additions and structural changes.</p></div>
 </div>
 
@@ -382,6 +381,7 @@ footer a{display:inline-flex;align-items:center;min-height:44px}
 <div class="eyebrow">Reviews</div>
 <h2>What homeowners say</h2>
 <div class="yelp-reviews">
+<span class="yelp-review" data-review-id="1oWDD4zDQNin6HuBRHizjQ" data-hostname="www.yelp.com">Read <a href="https://www.yelp.com/biz/great-britton-construction-san-jose?hrid=1oWDD4zDQNin6HuBRHizjQ" rel="nofollow noopener">this review</a> of <a href="https://www.yelp.com/biz/great-britton-construction-san-jose" rel="nofollow noopener">Great Britton Construction</a> on <a href="https://www.yelp.com" rel="nofollow noopener">Yelp</a></span>
 <span class="yelp-review" data-review-id="OgtnNCj_mbwXvipkjbB_7Q" data-hostname="www.yelp.com">Read <a href="https://www.yelp.com/biz/great-britton-construction-san-jose?hrid=OgtnNCj_mbwXvipkjbB_7Q" rel="nofollow noopener">this review</a> of <a href="https://www.yelp.com/biz/great-britton-construction-san-jose" rel="nofollow noopener">Great Britton Construction</a> on <a href="https://www.yelp.com" rel="nofollow noopener">Yelp</a></span>
 </div>
 <p class="projects-more"><a class="text-link" href="https://www.yelp.com/biz/great-britton-construction-san-jose" target="_blank" rel="noopener">Read our reviews on Yelp →</a></p>
@@ -401,13 +401,13 @@ footer a{display:inline-flex;align-items:center;min-height:44px}
 </div>
 </section>
 
-<!-- ===== Who you'll work with (TODO: real photo, name, role and bio, then remove `hidden`) ===== -->
-<section id="team" data-todo="team" hidden>
+<!-- ===== Who you'll work with (TODO: supply name, role, and short bio; photo optional later) ===== -->
+<section id="team" data-todo="team">
 <div class="wrap">
 <div class="eyebrow">Who you'll work with</div>
 <h2>Meet your project lead</h2>
 <div class="team">
-<img data-todo="team-photo" alt="TODO: name, role at Great Britton Construction" width="560" height="700">
+<img data-todo="team-photo" alt="TODO: name, role at Great Britton Construction" width="560" height="700" hidden>
 <div>
 <h3 data-todo="team-name">TODO: Name</h3>
 <p class="role" data-todo="team-role">TODO: Role</p>
@@ -426,19 +426,16 @@ footer a{display:inline-flex;align-items:center;min-height:44px}
 
 <h3 class="faq-group">Cost &amp; Process</h3>
 <div class="faq-item"><h4><button type="button" class="faq-q" id="faq-q1" aria-expanded="false" aria-controls="faq-a1">How much does a kitchen or bathroom remodel cost?<span class="faq-icon" aria-hidden="true"></span></button></h4>
-<div class="faq-a" id="faq-a1"><div><p>Every project is different. Most bathroom remodels we take on fall in the [CONFIRM: $X–$Y] range and kitchens in the [CONFIRM: $X–$Y] range, depending on scope, layout changes and finishes. Your free estimate gives you a written number for your specific project.</p></div></div></div>
+<div class="faq-a" id="faq-a1"><div><p>Every project is unique, and pricing depends on the size, scope, and finishes you choose. We'd love to hear what you have in mind and put together a free, personalized estimate that fits your vision and budget.</p></div></div></div>
 <div class="faq-item"><h4><button type="button" class="faq-q" id="faq-q2" aria-expanded="false" aria-controls="faq-a2">Is the estimate really free?<span class="faq-icon" aria-hidden="true"></span></button></h4>
 <div class="faq-a" id="faq-a2"><div><p>Yes. We'll walk the site, ask about your goals and budget, and give you a written estimate you can understand. No obligation.</p></div></div></div>
 <div class="faq-item"><h4><button type="button" class="faq-q" id="faq-q3" aria-expanded="false" aria-controls="faq-a3">How much of a deposit do you require?<span class="faq-icon" aria-hidden="true"></span></button></h4>
-<div class="faq-a" id="faq-a3"><div><p>California law limits home improvement deposits to 10% of the contract price or $1,000, whichever is less. We follow that rule on every project.</p></div></div></div>
+<div class="faq-a" id="faq-a3"><div><p>California law limits down payments on home improvement contracts to 10% of the contract price or $1,000, whichever is less. We follow this requirement on all applicable home improvement contracts.</p></div></div></div>
 <div class="faq-item"><h4><button type="button" class="faq-q" id="faq-q4" aria-expanded="false" aria-controls="faq-a4">How do payments work during the project?<span class="faq-icon" aria-hidden="true"></span></button></h4>
 <div class="faq-a" id="faq-a4"><div><p>Payments are tied to completed project milestones, spelled out in your contract before work begins.</p></div></div></div>
-<div class="faq-item"><h4><button type="button" class="faq-q" id="faq-q5" aria-expanded="false" aria-controls="faq-a5">Do you offer financing?<span class="faq-icon" aria-hidden="true"></span></button></h4>
-<div class="faq-a" id="faq-a5"><div><p>[CONFIRM: financing options or referral]</p></div></div></div>
-
 <h3 class="faq-group">Timeline</h3>
 <div class="faq-item"><h4><button type="button" class="faq-q" id="faq-q6" aria-expanded="false" aria-controls="faq-a6">How long does a remodel take?<span class="faq-icon" aria-hidden="true"></span></button></h4>
-<div class="faq-a" id="faq-a6"><div><p>A typical bathroom takes about [CONFIRM: X weeks] and a kitchen about [CONFIRM: X weeks] once work starts. Permits and material lead times can add to that; we'll give you a timeline with your estimate.</p></div></div></div>
+<div class="faq-a" id="faq-a6"><div><p>Every project has its own timeline depending on the scope, materials, and any permits involved. We'll walk you through what to expect and provide a realistic schedule before work begins.</p></div></div></div>
 <div class="faq-item"><h4><button type="button" class="faq-q" id="faq-q7" aria-expanded="false" aria-controls="faq-a7">How soon can you start?<span class="faq-icon" aria-hidden="true"></span></button></h4>
 <div class="faq-a" id="faq-a7"><div><p>It depends on our current schedule and your permit timeline. Ask us when you reach out and we'll give you a realistic date.</p></div></div></div>
 <div class="faq-item"><h4><button type="button" class="faq-q" id="faq-q8" aria-expanded="false" aria-controls="faq-a8">Can I live at home during the remodel?<span class="faq-icon" aria-hidden="true"></span></button></h4>
@@ -446,21 +443,21 @@ footer a{display:inline-flex;align-items:center;min-height:44px}
 
 <h3 class="faq-group">Permits &amp; Licensing</h3>
 <div class="faq-item"><h4><button type="button" class="faq-q" id="faq-q9" aria-expanded="false" aria-controls="faq-a9">Are you licensed and insured?<span class="faq-icon" aria-hidden="true"></span></button></h4>
-<div class="faq-a" id="faq-a9"><div><p>Yes. Great Britton Construction LLC holds California General B license <a href="https://www.cslb.ca.gov/OnlineServices/CheckLicenseII/CheckLicense.aspx" target="_blank" rel="noopener">#1025488<span class="sr-only"> (opens in a new tab)</span></a>. [CONFIRM: insurance details]</p></div></div></div>
+<div class="faq-a" id="faq-a9"><div><p>Yes. Great Britton Construction LLC is a licensed and insured California General Contractor (<a href="https://www.cslb.ca.gov/OnlineServices/CheckLicenseII/CheckLicense.aspx" target="_blank" rel="noopener">CSLB #1025488<span class="sr-only"> (opens in a new tab)</span></a>), carrying general liability and workers' compensation insurance.</p></div></div></div>
 <div class="faq-item"><h4><button type="button" class="faq-q" id="faq-q10" aria-expanded="false" aria-controls="faq-a10">Do you handle permits and inspections?<span class="faq-icon" aria-hidden="true"></span></button></h4>
-<div class="faq-a" id="faq-a10"><div><p>[CONFIRM: yes, we pull permits and coordinate inspections]</p></div></div></div>
+<div class="faq-a" id="faq-a10"><div><p>Yes. We handle permits and coordinate required inspections.</p></div></div></div>
 
 <h3 class="faq-group">Scope &amp; Design</h3>
 <div class="faq-item"><h4><button type="button" class="faq-q" id="faq-q12" aria-expanded="false" aria-controls="faq-a12">Do I need a designer or drawings first?<span class="faq-icon" aria-hidden="true"></span></button></h4>
 <div class="faq-a" id="faq-a12"><div><p>No. Many clients start with just ideas or inspiration photos. We'll help you define scope and coordinate engineering or drawings when a project needs them.</p></div></div></div>
 <div class="faq-item"><h4><button type="button" class="faq-q" id="faq-q13" aria-expanded="false" aria-controls="faq-a13">Can I supply my own materials?<span class="faq-icon" aria-hidden="true"></span></button></h4>
-<div class="faq-a" id="faq-a13"><div><p>[CONFIRM]</p></div></div></div>
+<div class="faq-a" id="faq-a13"><div><p>Yes! You're welcome to supply your own materials. We'll work with you to make sure everything is suitable for your project and ready when it's needed.</p></div></div></div>
 <div class="faq-item"><h4><button type="button" class="faq-q" id="faq-q14" aria-expanded="false" aria-controls="faq-a14">Do you work with condos and HOAs?<span class="faq-icon" aria-hidden="true"></span></button></h4>
 <div class="faq-a" id="faq-a14"><div><p>Yes. We can work through HOA approval requirements with you before work begins.</p></div></div></div>
 <div class="faq-item"><h4><button type="button" class="faq-q" id="faq-q15" aria-expanded="false" aria-controls="faq-a15">What areas do you serve?<span class="faq-icon" aria-hidden="true"></span></button></h4>
-<div class="faq-a" id="faq-a15"><div><p>[CONFIRM: list of cities]</p></div></div></div>
+<div class="faq-a" id="faq-a15"><div><p>We proudly serve homeowners throughout the entire San Francisco Bay Area.</p></div></div></div>
 <div class="faq-item"><h4><button type="button" class="faq-q" id="faq-q16" aria-expanded="false" aria-controls="faq-a16">Do you offer a warranty?<span class="faq-icon" aria-hidden="true"></span></button></h4>
-<div class="faq-a" id="faq-a16"><div><p>[CONFIRM: warranty terms]</p></div></div></div>
+<div class="faq-a" id="faq-a16"><div><p>Warranty coverage varies depending on the type of project and materials used. We'll walk you through the applicable warranties before work begins, so you know exactly what's covered.</p></div></div></div>
 
 </div>
 </div>
@@ -512,7 +509,7 @@ footer a{display:inline-flex;align-items:center;min-height:44px}
 <div class="tiles">
 <label class="tile"><input type="radio" name="project_type" value="Kitchen"><span>Kitchen</span></label>
 <label class="tile"><input type="radio" name="project_type" value="Bathroom"><span>Bathroom</span></label>
-<label class="tile"><input type="radio" name="project_type" value="Kitchen + Bath"><span>Kitchen + Bath</span></label>
+<label class="tile"><input type="radio" name="project_type" value="Kitchen + Bathroom"><span>Kitchen + Bathroom</span></label>
 <label class="tile"><input type="radio" name="project_type" value="Addition"><span>Addition</span></label>
 <label class="tile"><input type="radio" name="project_type" value="ADU"><span>ADU</span></label>
 <label class="tile"><input type="radio" name="project_type" value="Retaining Wall"><span>Retaining Wall</span></label>
@@ -532,7 +529,7 @@ footer a{display:inline-flex;align-items:center;min-height:44px}
 <p class="q-error" id="e-scope"></p>
 </fieldset>
 
-<fieldset class="cond" data-show-for="Bathroom|Kitchen + Bath" hidden disabled>
+<fieldset class="cond" data-show-for="Bathroom|Kitchen + Bathroom" hidden disabled>
 <legend>Bathroom details</legend>
 <fieldset class="q">
 <legend class="q-label">Which bathroom(s)? <span class="opt">(optional, choose all that apply)</span></legend>
@@ -557,7 +554,7 @@ footer a{display:inline-flex;align-items:center;min-height:44px}
 </fieldset>
 </fieldset>
 
-<fieldset class="cond" data-show-for="Kitchen|Kitchen + Bath" hidden disabled>
+<fieldset class="cond" data-show-for="Kitchen|Kitchen + Bathroom" hidden disabled>
 <legend>Kitchen details</legend>
 <fieldset class="q">
 <legend class="q-label">What's on your kitchen list? <span class="opt">(optional, choose all that apply)</span></legend>
@@ -603,6 +600,19 @@ footer a{display:inline-flex;align-items:center;min-height:44px}
 <label class="q-label" for="project_other">Tell us briefly what you have in mind</label>
 <input class="field" type="text" id="project_other" name="project_other" maxlength="200" aria-describedby="e-project_other">
 <p class="q-error" id="e-project_other"></p>
+</div>
+</fieldset>
+
+<fieldset class="q">
+<legend class="q-label">What's your budget range? <span class="opt">(optional)</span></legend>
+<div class="tiles">
+<label class="tile"><input type="radio" name="budget" value="Under $15K"><span>Under $15K</span></label>
+<label class="tile"><input type="radio" name="budget" value="$15K–$30K"><span>$15K–$30K</span></label>
+<label class="tile"><input type="radio" name="budget" value="$30K–$60K"><span>$30K–$60K</span></label>
+<label class="tile"><input type="radio" name="budget" value="$60K–$100K"><span>$60K–$100K</span></label>
+<label class="tile"><input type="radio" name="budget" value="$100K–$200K"><span>$100K–$200K</span></label>
+<label class="tile"><input type="radio" name="budget" value="$200K+"><span>$200K+</span></label>
+<label class="tile"><input type="radio" name="budget" value="Not sure yet"><span>Not sure yet</span></label>
 </div>
 </fieldset>
 </div>
@@ -704,17 +714,6 @@ footer a{display:inline-flex;align-items:center;min-height:44px}
 </fieldset>
 
 <fieldset class="q">
-<legend class="q-label">What's your budget range?</legend>
-<div class="tiles">
-<label class="tile"><input type="radio" name="budget" value="Under $15K"><span>Under $15K</span></label>
-<label class="tile"><input type="radio" name="budget" value="$15K–$30K"><span>$15K–$30K</span></label>
-<label class="tile"><input type="radio" name="budget" value="$30K–$60K"><span>$30K–$60K</span></label>
-<label class="tile"><input type="radio" name="budget" value="$60K+"><span>$60K+</span></label>
-<label class="tile"><input type="radio" name="budget" value="Not sure yet"><span>Not sure yet</span></label>
-</div>
-</fieldset>
-
-<fieldset class="q">
 <legend class="q-label">When would you like to start?</legend>
 <div class="tiles">
 <label class="tile"><input type="radio" name="start_timeline" value="As soon as possible"><span>As soon as possible</span></label>
@@ -793,8 +792,7 @@ footer a{display:inline-flex;align-items:center;min-height:44px}
 <li>Written, itemized estimate</li>
 <li>Licensed &amp; insured · CSLB #1025488</li>
 <li>We reply within one business day</li>
-<!-- TODO: add real warranty term, then remove `hidden` -->
-<li data-todo="warranty" hidden>X-year workmanship warranty</li>
+<li>Project-specific workmanship warranties</li>
 </ul>
 </aside>
 </div>
@@ -1116,8 +1114,6 @@ var qs=[].slice.call(steps[i].querySelectorAll('.q[data-validate]')).filter(isAc
 qs.forEach(function(q){var m=checkQ(q);setErr(q,m);if(m)bad.push(q);});
 alertBox.textContent='';
 if(bad.length){
-var names=bad.map(function(q){return q.getAttribute('data-label');}).join(', ');
-setTimeout(function(){alertBox.textContent='Please check '+(bad.length===1?'this field':'these '+bad.length+' fields')+': '+names+'.';},50);
 var target=bad[0].querySelector('input:not(:disabled),textarea');if(target)target.focus();
 return false;
 }
@@ -1160,7 +1156,7 @@ phone.addEventListener('blur',function(){var d=phone.value.replace(/\D/g,'');if(
 
 function leadScore(){
 var own=radioVal('ownership'),b=radioVal('budget'),t=radioVal('start_timeline');
-var budgetOk=['$15K–$30K','$30K–$60K','$60K+'].indexOf(b)>-1;
+var budgetOk=['$15K–$30K','$30K–$60K','$60K–$100K','$100K–$200K','$200K+'].indexOf(b)>-1;
 if(own==='I own it'&&budgetOk&&(t==='As soon as possible'||t==='1–3 months'))return 'hot';
 if(t==='Just exploring'&&b==='Not sure yet')return 'nurture';
 return 'warm';
