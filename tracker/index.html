@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Start page visits · Great Britton Construction</title>
+<link rel="icon" href="https://greatbrittongc.com/assets/great-britton-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<script src="../assets/supabase-config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.1/dist/umd/supabase.min.js"></script>
+<style>
+:root{--bg:#0a0c0d;--panel:#14171a;--line:#2a2e31;--text:#eae6dc;--muted:#a8a395;--gold:#d8ad43;--ink:#101213;--red:#e25555}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:"DM Sans",Arial,sans-serif;line-height:1.5;min-height:100vh}
+a{color:var(--gold)}
+.wrap{max-width:920px;margin:0 auto;padding:32px 20px 64px}
+h1,h2{font-family:"Barlow Condensed",Impact,sans-serif;text-transform:uppercase;letter-spacing:.02em;line-height:1}
+.eyebrow{color:var(--gold);font-size:.8rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-bottom:10px}
+h1{font-size:clamp(2rem,5vw,3rem);margin-bottom:8px}
+.lede{color:var(--muted);max-width:40rem;margin-bottom:28px}
+.card{background:var(--panel);border:1px solid var(--line);padding:24px;border-radius:2px;max-width:440px}
+.field{display:block;width:100%;min-height:48px;background:var(--bg);border:1px solid #686d71;border-radius:2px;color:var(--text);font:inherit;padding:12px 14px;margin-top:8px}
+label{display:block;font-weight:700;font-size:.95rem;margin-top:16px}
+label:first-child{margin-top:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;background:var(--gold);color:var(--ink);font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:.08em;font-size:.9rem;padding:12px 22px;border:0;border-radius:2px;cursor:pointer;font-family:inherit}
+.btn:disabled{opacity:.6;cursor:wait}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px;align-items:center}
+.err{color:var(--red);margin-top:12px;font-size:.92rem}
+.err:empty{display:none}
+.note{color:var(--muted);font-size:.88rem;margin-top:14px}
+.topbar{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:flex-end;margin-bottom:20px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:20px}
+.stat{background:var(--panel);border:1px solid var(--line);padding:16px}
+.stat b{display:block;font-family:"Barlow Condensed",Impact,sans-serif;font-size:2rem;line-height:1;margin-top:6px}
+.stat span{color:var(--muted);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;font-weight:700}
+table{width:100%;border-collapse:collapse;background:var(--panel);border:1px solid var(--line)}
+th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top;font-size:.95rem}
+th{color:var(--muted);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase}
+tr:last-child td{border-bottom:0}
+.empty{color:var(--muted);padding:28px 14px;text-align:center}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="eyebrow">Internal</div>
+<h1>Start page visits</h1>
+<p class="lede">City-level visits for start.greatbrittongc.com. Sign in with your Field account email (one-time code).</p>
+
+<section id="login" class="card" hidden>
+<form id="email-form">
+<label>Email
+<input class="field" type="email" id="email" name="email" autocomplete="username" required>
+</label>
+<div class="actions">
+<button class="btn" type="submit" id="send-btn">Email me a code</button>
+</div>
+<p class="err" id="login-error"></p>
+<p class="note">Same invite-only accounts as field.greatbrittongc.com. City only is stored — no IP addresses.</p>
+</form>
+
+<form id="otp-form" hidden>
+<label>One-time code
+<input class="field" type="text" id="otp" name="otp" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]*" maxlength="8" required>
+</label>
+<div class="actions">
+<button class="btn" type="submit" id="verify-btn">Verify &amp; sign in</button>
+<button class="btn ghost" type="button" id="resend-btn">Resend code</button>
+</div>
+<p class="err" id="otp-error"></p>
+<p class="note" id="otp-note"></p>
+</form>
+</section>
+
+<section id="app" hidden>
+<div class="topbar">
+<div>
+<p class="note" id="signed-in" style="margin:0"></p>
+</div>
+<div class="actions" style="margin:0">
+<button class="btn ghost" type="button" id="refresh">Refresh</button>
+<button class="btn ghost" type="button" id="signout">Sign out</button>
+</div>
+</div>
+
+<div class="stats">
+<div class="stat"><span>Total visits</span><b id="stat-total">—</b></div>
+<div class="stat"><span>Last 24 hours</span><b id="stat-day">—</b></div>
+<div class="stat"><span>Unique cities</span><b id="stat-cities">—</b></div>
+</div>
+
+<div style="overflow:auto">
+<table>
+<thead>
+<tr>
+<th>Timestamp</th>
+<th>City</th>
+<th>Region</th>
+<th>Country</th>
+<th>Path</th>
+</tr>
+</thead>
+<tbody id="rows">
+<tr><td class="empty" colspan="5">Loading…</td></tr>
+</tbody>
+</table>
+</div>
+<p class="err" id="app-error"></p>
+</section>
+</div>
+
+<script>
+(function(){
+var cfg = window.GBC_SUPABASE;
+if(!cfg || !window.supabase){
+  document.body.innerHTML = '<p style="padding:40px;color:#e25555">Missing Supabase config.</p>';
+  return;
+}
+var client = window.supabase.createClient(cfg.url, cfg.anonKey, {
+  auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true }
+});
+
+var loginEl = document.getElementById('login');
+var emailForm = document.getElementById('email-form');
+var otpForm = document.getElementById('otp-form');
+var appEl = document.getElementById('app');
+var loginErr = document.getElementById('login-error');
+var otpErr = document.getElementById('otp-error');
+var appErr = document.getElementById('app-error');
+var rowsEl = document.getElementById('rows');
+var pendingEmail = '';
+
+function fmt(ts){
+  try{
+    return new Intl.DateTimeFormat(undefined,{ dateStyle:'medium', timeStyle:'short' }).format(new Date(ts));
+  }catch(e){ return ts; }
+}
+
+function showLogin(){
+  loginEl.hidden = false;
+  appEl.hidden = true;
+  emailForm.hidden = false;
+  otpForm.hidden = true;
+}
+function showOtp(email){
+  pendingEmail = email;
+  loginEl.hidden = false;
+  appEl.hidden = true;
+  emailForm.hidden = true;
+  otpForm.hidden = false;
+  document.getElementById('otp-note').textContent = 'We sent a 6-digit code to ' + email + '.';
+  document.getElementById('otp').focus();
+}
+function showApp(session){
+  loginEl.hidden = true;
+  appEl.hidden = false;
+  document.getElementById('signed-in').textContent = 'Signed in as ' + (session.user.email || session.user.id);
+  loadVisits();
+}
+
+async function sendCode(email){
+  return client.auth.signInWithOtp({
+    email: email,
+    options: { shouldCreateUser: false }
+  });
+}
+
+async function loadVisits(){
+  appErr.textContent = '';
+  rowsEl.innerHTML = '<tr><td class="empty" colspan="5">Loading…</td></tr>';
+  var res = await client
+    .from('start_visits')
+    .select('id,visited_at,city,region,country,path')
+    .order('visited_at', { ascending: false })
+    .limit(500);
+  if(res.error){
+    rowsEl.innerHTML = '<tr><td class="empty" colspan="5">Could not load visits.</td></tr>';
+    appErr.textContent = res.error.message;
+    return;
+  }
+  var rows = res.data || [];
+  document.getElementById('stat-total').textContent = String(rows.length) + (rows.length >= 500 ? '+' : '');
+  var dayAgo = Date.now() - 24*60*60*1000;
+  document.getElementById('stat-day').textContent = String(rows.filter(function(r){ return new Date(r.visited_at).getTime() >= dayAgo; }).length);
+  var cities = {};
+  rows.forEach(function(r){ if(r.city) cities[r.city + '|' + (r.region||'') + '|' + (r.country||'')] = 1; });
+  document.getElementById('stat-cities').textContent = String(Object.keys(cities).length);
+
+  if(!rows.length){
+    rowsEl.innerHTML = '<tr><td class="empty" colspan="5">No visits logged yet.</td></tr>';
+    return;
+  }
+  rowsEl.innerHTML = rows.map(function(r){
+    return '<tr>' +
+      '<td>' + fmt(r.visited_at) + '</td>' +
+      '<td>' + (r.city || '—') + '</td>' +
+      '<td>' + (r.region || '—') + '</td>' +
+      '<td>' + (r.country || '—') + '</td>' +
+      '<td>' + (r.path || '/') + '</td>' +
+    '</tr>';
+  }).join('');
+}
+
+emailForm.addEventListener('submit', async function(e){
+  e.preventDefault();
+  loginErr.textContent = '';
+  var email = document.getElementById('email').value.trim();
+  var btn = document.getElementById('send-btn');
+  btn.disabled = true;
+  var res = await sendCode(email);
+  btn.disabled = false;
+  if(res.error){ loginErr.textContent = res.error.message; return; }
+  showOtp(email);
+});
+
+otpForm.addEventListener('submit', async function(e){
+  e.preventDefault();
+  otpErr.textContent = '';
+  var token = document.getElementById('otp').value.trim();
+  var btn = document.getElementById('verify-btn');
+  btn.disabled = true;
+  var res = await client.auth.verifyOtp({ email: pendingEmail, token: token, type: 'email' });
+  btn.disabled = false;
+  if(res.error){ otpErr.textContent = res.error.message; return; }
+  showApp(res.data.session);
+});
+
+document.getElementById('resend-btn').addEventListener('click', async function(){
+  otpErr.textContent = '';
+  var res = await sendCode(pendingEmail);
+  if(res.error) otpErr.textContent = res.error.message;
+  else document.getElementById('otp-note').textContent = 'Code resent to ' + pendingEmail + '.';
+});
+
+document.getElementById('signout').addEventListener('click', async function(){
+  await client.auth.signOut();
+  showLogin();
+});
+document.getElementById('refresh').addEventListener('click', loadVisits);
+
+client.auth.getSession().then(function(res){
+  if(res.data.session) showApp(res.data.session);
+  else showLogin();
+});
+})();
+</script>
+</body>
+</html>
