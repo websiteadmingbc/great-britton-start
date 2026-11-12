@@ -475,16 +475,6 @@ footer a{display:inline-flex;align-items:center;min-height:44px}
 <li><figure><button type="button" class="proj" data-full="assets/img/project-photo-19-1600.jpg" data-w="1200" data-h="1600"><img src="assets/img/project-photo-19-640.jpg" width="640" height="853" alt="Bathroom with patterned tile floor and curbless shower" loading="lazy" decoding="async"><span class="sr-only"> (open larger photo)</span></button><figcaption>Curbless shower &middot; Los Altos</figcaption></figure></li>
 </ul>
 </div>
-<!-- Reusable before/after slider. TODO: needs before photos. Add data-before-src / data-after-src, then remove `hidden`. -->
-<div class="ba" data-ba data-todo="before-after" data-before-src="" data-after-src="" data-before-alt="Before photo of the remodel" data-after-alt="After photo of the remodel" hidden>
-<div class="ba-frame">
-<img class="ba-after" alt="After photo of the remodel" width="1200" height="900">
-<img class="ba-before" alt="Before photo of the remodel" width="1200" height="900">
-<span class="ba-label before">Before</span><span class="ba-label after">After</span>
-<span class="ba-handle" aria-hidden="true"></span>
-</div>
-<input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Before and after comparison: slide to reveal before or after">
-</div>
 </div>
 </section>
 
@@ -501,16 +491,6 @@ footer a{display:inline-flex;align-items:center;min-height:44px}
 <div class="card"><span class="tag">05 / Structure</span><h3>Structural work</h3><p>Framing, foundations and engineering coordination for additions and structural changes.</p></div>
 </div>
 
-<!-- TODO: add real typical price ranges, then remove `hidden` -->
-<div data-todo="price-ranges" hidden>
-<div class="ranges" aria-label="Typical project ranges">
-<div><b>Bath refresh</b><span data-todo="range-bath-refresh">$X&ndash;$Y</span></div>
-<div><b>Full bath</b><span data-todo="range-full-bath">$X&ndash;$Y</span></div>
-<div><b>Kitchen refresh</b><span data-todo="range-kitchen-refresh">$X&ndash;$Y</span></div>
-<div><b>Full kitchen</b><span data-todo="range-full-kitchen">$X&ndash;$Y</span></div>
-</div>
-<p class="ranges-foot"><a class="text-link" href="#faq" data-open-faq="faq-q1">How we price projects &rarr;</a></p>
-</div>
 </div>
 </section>
 
@@ -533,7 +513,6 @@ footer a{display:inline-flex;align-items:center;min-height:44px}
 <div>
 <h3>Paul Alcantar</h3>
 <p class="role">Project Manager</p>
-<!-- TODO: confirm details with Paul; add years of experience if available -->
 <p>Paul Alcantar has spent his whole working life in construction. He started as a laborer on job sites and learned the trade from the ground up. He also spent years in public service and now teaches others the trade. As Project Manager, Paul runs your job day to day: he coordinates the crew and subs, keeps the schedule moving, and makes sure the work meets the standard before anyone calls it done. Homeowners know him for showing up, doing what he says, and leaving the site clean.</p>
 </div>
 </div>
@@ -547,7 +526,7 @@ footer a{display:inline-flex;align-items:center;min-height:44px}
 <h2>Simple from the first call</h2>
 <ol class="steps">
 <li><strong>Tell us about your project</strong><span>Call, text or email. We'll ask a few questions about scope, timing and budget.</span></li>
-<li><strong>Get a clear estimate</strong><span>We walk the site and give you a written estimate you can understand.</span></li>
+<li><strong>Get a clear estimate</strong><span>We walk the site, handle permits when needed, and give you a written estimate you can understand.</span></li>
 <li><strong>We build it right</strong><span>A coordinated team, steady updates, and work that's made to last.</span></li>
 </ol>
 </div>
@@ -560,42 +539,16 @@ footer a{display:inline-flex;align-items:center;min-height:44px}
 <div class="eyebrow">Questions</div>
 <h2>Good to know</h2>
 <div class="faq">
-
-<h3 class="faq-group">Cost &amp; Process</h3>
 <div class="faq-item"><h4><button type="button" class="faq-q" id="faq-q1" aria-expanded="false" aria-controls="faq-a1">How much does a kitchen or bathroom remodel cost?<span class="faq-icon" aria-hidden="true"></span></button></h4>
 <div class="faq-a" id="faq-a1"><div><p>Every project is unique, and pricing depends on the size, scope, and finishes you choose. We'd love to hear what you have in mind and put together a free, personalized estimate that fits your vision and budget.</p></div></div></div>
-<div class="faq-item"><h4><button type="button" class="faq-q" id="faq-q2" aria-expanded="false" aria-controls="faq-a2">Is the estimate really free?<span class="faq-icon" aria-hidden="true"></span></button></h4>
-<div class="faq-a" id="faq-a2"><div><p>Yes. We'll walk the site, ask about your goals and budget, and give you a written estimate you can understand. No obligation.</p></div></div></div>
-<div class="faq-item"><h4><button type="button" class="faq-q" id="faq-q3" aria-expanded="false" aria-controls="faq-a3">How much of a deposit do you require?<span class="faq-icon" aria-hidden="true"></span></button></h4>
-<div class="faq-a" id="faq-a3"><div><p>California law limits down payments on home improvement contracts to 10% of the contract price or $1,000, whichever is less. We follow this requirement on all applicable home improvement contracts.</p></div></div></div>
-<div class="faq-item"><h4><button type="button" class="faq-q" id="faq-q4" aria-expanded="false" aria-controls="faq-a4">How do payments work during the project?<span class="faq-icon" aria-hidden="true"></span></button></h4>
-<div class="faq-a" id="faq-a4"><div><p>Payments are tied to completed project milestones, spelled out in your contract before work begins.</p></div></div></div>
-<h3 class="faq-group">Timeline</h3>
-<div class="faq-item"><h4><button type="button" class="faq-q" id="faq-q6" aria-expanded="false" aria-controls="faq-a6">How long does a remodel take?<span class="faq-icon" aria-hidden="true"></span></button></h4>
-<div class="faq-a" id="faq-a6"><div><p>Every project has its own timeline depending on the scope, materials, and any permits involved. We'll walk you through what to expect and provide a realistic schedule before work begins.</p></div></div></div>
-<div class="faq-item"><h4><button type="button" class="faq-q" id="faq-q7" aria-expanded="false" aria-controls="faq-a7">How soon can you start?<span class="faq-icon" aria-hidden="true"></span></button></h4>
-<div class="faq-a" id="faq-a7"><div><p>It depends on our current schedule and your permit timeline. Ask us when you reach out and we'll give you a realistic date.</p></div></div></div>
-<div class="faq-item"><h4><button type="button" class="faq-q" id="faq-q8" aria-expanded="false" aria-controls="faq-a8">Can I live at home during the remodel?<span class="faq-icon" aria-hidden="true"></span></button></h4>
-<div class="faq-a" id="faq-a8"><div><p>Usually, yes. We contain dust, keep work areas clean, and plan around your household. For kitchens we'll talk through a temporary setup.</p></div></div></div>
-
-<h3 class="faq-group">Permits &amp; Licensing</h3>
-<div class="faq-item"><h4><button type="button" class="faq-q" id="faq-q9" aria-expanded="false" aria-controls="faq-a9">Are you licensed and insured?<span class="faq-icon" aria-hidden="true"></span></button></h4>
-<div class="faq-a" id="faq-a9"><div><p>Yes. Great Britton Construction LLC is a licensed and insured California General Contractor (<a href="https://www.cslb.ca.gov/OnlineServices/CheckLicenseII/CheckLicense.aspx" target="_blank" rel="noopener">CSLB #1025488<span class="sr-only"> (opens in a new tab)</span></a>), carrying general liability and workers' compensation insurance.</p></div></div></div>
-<div class="faq-item"><h4><button type="button" class="faq-q" id="faq-q10" aria-expanded="false" aria-controls="faq-a10">Do you handle permits and inspections?<span class="faq-icon" aria-hidden="true"></span></button></h4>
-<div class="faq-a" id="faq-a10"><div><p>Yes. We handle permits and coordinate required inspections.</p></div></div></div>
-
-<h3 class="faq-group">Scope &amp; Design</h3>
-<div class="faq-item"><h4><button type="button" class="faq-q" id="faq-q12" aria-expanded="false" aria-controls="faq-a12">Do I need a designer or drawings first?<span class="faq-icon" aria-hidden="true"></span></button></h4>
-<div class="faq-a" id="faq-a12"><div><p>No. Many clients start with just ideas or inspiration photos. We'll help you define scope and coordinate engineering or drawings when a project needs them.</p></div></div></div>
-<div class="faq-item"><h4><button type="button" class="faq-q" id="faq-q13" aria-expanded="false" aria-controls="faq-a13">Can I supply my own materials?<span class="faq-icon" aria-hidden="true"></span></button></h4>
-<div class="faq-a" id="faq-a13"><div><p>Yes! You're welcome to supply your own materials. We'll work with you to make sure everything is suitable for your project and ready when it's needed.</p></div></div></div>
-<div class="faq-item"><h4><button type="button" class="faq-q" id="faq-q14" aria-expanded="false" aria-controls="faq-a14">Do you work with condos and HOAs?<span class="faq-icon" aria-hidden="true"></span></button></h4>
-<div class="faq-a" id="faq-a14"><div><p>Yes. We can work through HOA approval requirements with you before work begins.</p></div></div></div>
-<div class="faq-item"><h4><button type="button" class="faq-q" id="faq-q15" aria-expanded="false" aria-controls="faq-a15">What areas do you serve?<span class="faq-icon" aria-hidden="true"></span></button></h4>
-<div class="faq-a" id="faq-a15"><div><p>We proudly serve homeowners throughout the entire San Francisco Bay Area.</p></div></div></div>
-<div class="faq-item"><h4><button type="button" class="faq-q" id="faq-q16" aria-expanded="false" aria-controls="faq-a16">Do you offer a warranty?<span class="faq-icon" aria-hidden="true"></span></button></h4>
-<div class="faq-a" id="faq-a16"><div><p>Warranty coverage varies depending on the type of project and materials used. We'll walk you through the applicable warranties before work begins, so you know exactly what's covered.</p></div></div></div>
-
+<div class="faq-item"><h4><button type="button" class="faq-q" id="faq-q2" aria-expanded="false" aria-controls="faq-a2">How long does a remodel take?<span class="faq-icon" aria-hidden="true"></span></button></h4>
+<div class="faq-a" id="faq-a2"><div><p>Every project has its own timeline depending on the scope, materials, and any permits involved. We'll walk you through what to expect and provide a realistic schedule before work begins.</p></div></div></div>
+<div class="faq-item"><h4><button type="button" class="faq-q" id="faq-q3" aria-expanded="false" aria-controls="faq-a3">How soon can you start?<span class="faq-icon" aria-hidden="true"></span></button></h4>
+<div class="faq-a" id="faq-a3"><div><p>It depends on our current schedule and your permit timeline. Ask us when you reach out and we'll give you a realistic date.</p></div></div></div>
+<div class="faq-item"><h4><button type="button" class="faq-q" id="faq-q4" aria-expanded="false" aria-controls="faq-a4">Do you handle permits and inspections?<span class="faq-icon" aria-hidden="true"></span></button></h4>
+<div class="faq-a" id="faq-a4"><div><p>Yes. We handle permits and coordinate required inspections.</p></div></div></div>
+<div class="faq-item"><h4><button type="button" class="faq-q" id="faq-q5" aria-expanded="false" aria-controls="faq-a5">Do I need a designer or drawings first?<span class="faq-icon" aria-hidden="true"></span></button></h4>
+<div class="faq-a" id="faq-a5"><div><p>No. Many clients start with just ideas or inspiration photos. We'll help you define scope and coordinate engineering or drawings when a project needs them.</p></div></div></div>
 </div>
 </div>
 </section>
@@ -770,8 +723,6 @@ footer a{display:inline-flex;align-items:center;min-height:44px}
 <script>
 /* =====================================================================
    SITE CONFIG — single source for contact details.
-   TODO: switch email to estimates@greatbrittongc.com once that mailbox exists.
-   TODO: set SHOW_NEXTDOOR_OFFER to true when the Nextdoor offer is live.
    ===================================================================== */
 var SITE = {
   email: 'dylansimpson@greatbrittongc.com',
