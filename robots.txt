@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+# Ads-only Nextdoor landing page — do not index
