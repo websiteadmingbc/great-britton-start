@@ -1292,7 +1292,7 @@ if(!honeypotHit) trackNextdoorLead();
 try{window.dispatchEvent(new CustomEvent('lead_submitted',{detail:detail}));}catch(err){}
 step3.disabled=false;
 showStep(2,true);
-}).catch(function(){busy(btnSubmit,false,SUBMIT_LABEL);showSendError('Sorry, we couldn't send your request. Please try again,');});
+}).catch(function(){busy(btnSubmit,false,SUBMIT_LABEL);showSendError("Sorry, we couldn't send your request. Please try again,");});
 });
 
 /* Step 3: optional follow-up with the same lead_id */
@@ -1306,7 +1306,7 @@ post(fd).then(function(){
 track('form_step_complete',{step:3});
 track('lead_enriched',{lead_score:form.elements.lead_score.value,budget:radioVal('budget'),start_timeline:radioVal('start_timeline')});
 finish();
-}).catch(function(){busy(btnEnrich,false,ENRICH_LABEL);btnSkip.disabled=false;showSendError('Your request was received, but these extra details didn't send. Try again, skip,');});
+}).catch(function(){busy(btnEnrich,false,ENRICH_LABEL);btnSkip.disabled=false;showSendError("Your request was received, but these extra details didn't send. Try again, skip,");});
 });
 btnSkip.addEventListener('click',finish);
 
