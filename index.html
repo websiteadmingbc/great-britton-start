@@ -565,117 +565,22 @@ footer a{display:inline-flex;align-items:center;min-height:44px}
 <label class="tile"><input type="radio" name="project_type" value="Kitchen"><span>Kitchen</span></label>
 <label class="tile"><input type="radio" name="project_type" value="Bathroom"><span>Bathroom</span></label>
 <label class="tile"><input type="radio" name="project_type" value="Kitchen + Bathroom"><span>Kitchen + Bathroom</span></label>
-<label class="tile"><input type="radio" name="project_type" value="Addition"><span>Addition</span></label>
-<label class="tile"><input type="radio" name="project_type" value="ADU"><span>ADU</span></label>
-<label class="tile"><input type="radio" name="project_type" value="Retaining Wall"><span>Retaining Wall</span></label>
+<label class="tile"><input type="radio" name="project_type" value="Addition / ADU"><span>Addition / ADU</span></label>
 <label class="tile"><input type="radio" name="project_type" value="Other"><span>Other</span></label>
 </div>
 <p class="q-error" id="e-project_type"></p>
 </fieldset>
 
-<fieldset class="q" data-validate="choice" data-label="Scope" aria-describedby="e-scope">
-<legend class="q-label">What's the scope?</legend>
-<div class="tiles wide">
-<label class="tile"><input type="radio" name="scope" value="Refresh &mdash; new surfaces &amp; fixtures, same layout"><span><span><b>Refresh</b><small>New surfaces &amp; fixtures, same layout</small></span></span></label>
-<label class="tile"><input type="radio" name="scope" value="Full remodel &mdash; same layout"><span><span><b>Full remodel</b><small>Same layout</small></span></span></label>
-<label class="tile"><input type="radio" name="scope" value="Layout change &mdash; moving walls, plumbing or gas"><span><span><b>Layout change</b><small>Moving walls, plumbing or gas</small></span></span></label>
-<label class="tile" hidden><input type="radio" name="scope" value="New construction" disabled><span><span><b>New construction</b></span></span></label>
+<div class="q">
+<label class="q-label" for="notes">Anything else we should know? <span class="opt">(optional)</span></label>
+<textarea class="field" id="notes" name="notes" rows="3" maxlength="1000" placeholder="Timing, scope, or questions"></textarea>
 </div>
-<p class="q-error" id="e-scope"></p>
-</fieldset>
-
-<fieldset class="cond" data-show-for="Bathroom|Kitchen + Bathroom" hidden disabled>
-<legend>Bathroom details</legend>
-<fieldset class="q">
-<legend class="q-label">Which bathroom(s)? <span class="opt">(optional, choose all that apply)</span></legend>
-<div class="tiles">
-<label class="tile"><input type="checkbox" name="bath_which" value="Primary"><span>Primary</span></label>
-<label class="tile"><input type="checkbox" name="bath_which" value="Hall/Guest"><span>Hall/Guest</span></label>
-<label class="tile"><input type="checkbox" name="bath_which" value="Half bath"><span>Half bath</span></label>
-</div>
-</fieldset>
-<div class="q" data-validate="range" data-label="Number of bathrooms">
-<label class="q-label" for="bath_count">How many bathrooms? <span class="opt">(optional, 1&ndash;5)</span></label>
-<input class="field short" type="text" inputmode="numeric" id="bath_count" name="bath_count" data-min="1" data-max="5" maxlength="1" aria-describedby="e-bath_count">
-<p class="q-error" id="e-bath_count"></p>
-</div>
-<fieldset class="q">
-<legend class="q-label">Converting a tub to a shower? <span class="opt">(optional)</span></legend>
-<div class="tiles">
-<label class="tile"><input type="radio" name="tub_to_shower" value="Yes"><span>Yes</span></label>
-<label class="tile"><input type="radio" name="tub_to_shower" value="No"><span>No</span></label>
-<label class="tile"><input type="radio" name="tub_to_shower" value="Not sure"><span>Not sure</span></label>
-</div>
-</fieldset>
-</fieldset>
-
-<fieldset class="cond" data-show-for="Kitchen|Kitchen + Bathroom" hidden disabled>
-<legend>Kitchen details</legend>
-<fieldset class="q">
-<legend class="q-label">What's on your kitchen list? <span class="opt">(optional, choose all that apply)</span></legend>
-<div class="tiles">
-<label class="tile"><input type="checkbox" name="kitchen_items" value="New cabinets"><span>New cabinets</span></label>
-<label class="tile"><input type="checkbox" name="kitchen_items" value="Reface cabinets"><span>Reface cabinets</span></label>
-<label class="tile"><input type="checkbox" name="kitchen_items" value="Countertops"><span>Countertops</span></label>
-<label class="tile"><input type="checkbox" name="kitchen_items" value="Add an island"><span>Add an island</span></label>
-<label class="tile"><input type="checkbox" name="kitchen_items" value="Move appliances"><span>Move appliances</span></label>
-<label class="tile"><input type="checkbox" name="kitchen_items" value="Flooring"><span>Flooring</span></label>
-<label class="tile"><input type="checkbox" name="kitchen_items" value="Lighting"><span>Lighting</span></label>
-</div>
-</fieldset>
-</fieldset>
-
-<fieldset class="cond" data-show-for="ADU|Addition" hidden disabled>
-<legend>ADU / addition details</legend>
-<fieldset class="q">
-<legend class="q-label">What type? <span class="opt">(optional)</span></legend>
-<div class="tiles">
-<label class="tile"><input type="radio" name="adu_type" value="Detached"><span>Detached</span></label>
-<label class="tile"><input type="radio" name="adu_type" value="Attached"><span>Attached</span></label>
-<label class="tile"><input type="radio" name="adu_type" value="Garage conversion"><span>Garage conversion</span></label>
-</div>
-</fieldset>
-<div class="q" data-validate="number" data-label="Approximate square footage">
-<label class="q-label" for="approx_sqft">Approximate square footage <span class="opt">(optional)</span></label>
-<input class="field short" type="text" inputmode="numeric" id="approx_sqft" name="approx_sqft" maxlength="6" aria-describedby="e-approx_sqft">
-<p class="q-error" id="e-approx_sqft"></p>
-</div>
-<fieldset class="q">
-<legend class="q-label">Do you have plans or drawings? <span class="opt">(optional)</span></legend>
-<div class="tiles">
-<label class="tile"><input type="radio" name="have_plans" value="Yes"><span>Yes</span></label>
-<label class="tile"><input type="radio" name="have_plans" value="No"><span>No</span></label>
-</div>
-</fieldset>
-</fieldset>
-
-<fieldset class="cond" data-show-for="Other" hidden disabled>
-<legend>Your project</legend>
-<div class="q" data-validate="required" data-label="Project description">
-<label class="q-label" for="project_other">Tell us briefly what you have in mind</label>
-<input class="field" type="text" id="project_other" name="project_other" maxlength="200" aria-describedby="e-project_other">
-<p class="q-error" id="e-project_other"></p>
-</div>
-</fieldset>
-
-<fieldset class="q">
-<legend class="q-label">What's your budget range? <span class="opt">(optional)</span></legend>
-<div class="tiles">
-<label class="tile"><input type="radio" name="budget" value="Under $15K"><span>Under $15K</span></label>
-<label class="tile"><input type="radio" name="budget" value="$15K&ndash;$30K"><span>$15K&ndash;$30K</span></label>
-<label class="tile"><input type="radio" name="budget" value="$30K&ndash;$60K"><span>$30K&ndash;$60K</span></label>
-<label class="tile"><input type="radio" name="budget" value="$60K&ndash;$100K"><span>$60K&ndash;$100K</span></label>
-<label class="tile"><input type="radio" name="budget" value="$100K&ndash;$200K"><span>$100K&ndash;$200K</span></label>
-<label class="tile"><input type="radio" name="budget" value="$200K+"><span>$200K+</span></label>
-<label class="tile"><input type="radio" name="budget" value="Not sure yet"><span>Not sure yet</span></label>
-</div>
-</fieldset>
 </div>
 
 <!-- STEP 2 -->
 <div class="inq-step" data-step="2" role="group" aria-labelledby="st2">
 <h3 class="step-title" id="st2" tabindex="-1">Contact</h3>
-<p class="step-intro">Where should we send your estimate?</p>
+<p class="step-intro">Where should we reach you?</p>
 
 <div class="q" data-validate="required" data-label="Full name">
 <label class="q-label" for="full_name">Full name</label>
@@ -713,122 +618,13 @@ footer a{display:inline-flex;align-items:center;min-height:44px}
 </fieldset>
 </div>
 
-<!-- STEP 3 (optional, after the lead is sent) -->
-<fieldset class="inq-step" data-step="3" id="step3" disabled style="border:0;padding:0;margin:0;min-width:0">
-<h3 class="step-title" id="st3" tabindex="-1">Got it &mdash; your request is in</h3>
-<p class="step-intro">We'll follow up within one business day. Want to help us prepare? These questions are optional.</p>
-
-<fieldset class="q">
-<legend class="q-label">What's prompting the project? <span class="opt">(choose all that apply)</span></legend>
-<div class="tiles">
-<label class="tile"><input type="checkbox" name="motivation" value="Outdated"><span>Outdated</span></label>
-<label class="tile"><input type="checkbox" name="motivation" value="Damage or leak"><span>Damage or leak</span></label>
-<label class="tile"><input type="checkbox" name="motivation" value="Accessibility / aging in place"><span>Accessibility / aging in place</span></label>
-<label class="tile"><input type="checkbox" name="motivation" value="Preparing to sell"><span>Preparing to sell</span></label>
-<label class="tile"><input type="checkbox" name="motivation" value="Growing family"><span>Growing family</span></label>
-<label class="tile"><input type="checkbox" name="motivation" value="Other"><span>Other</span></label>
-</div>
-</fieldset>
-
-<fieldset class="q">
-<legend class="q-label">Type of home</legend>
-<div class="tiles">
-<label class="tile"><input type="radio" name="home_type" value="Single-family"><span>Single-family</span></label>
-<label class="tile"><input type="radio" name="home_type" value="Townhome"><span>Townhome</span></label>
-<label class="tile"><input type="radio" name="home_type" value="Condo"><span>Condo</span></label>
-</div>
-<p class="inq-note" id="note-hoa" aria-live="polite"></p>
-</fieldset>
-
-<fieldset class="q">
-<legend class="q-label">When was the home built?</legend>
-<div class="tiles">
-<label class="tile"><input type="radio" name="year_built" value="Before 1978"><span>Before 1978</span></label>
-<label class="tile"><input type="radio" name="year_built" value="1978&ndash;2000"><span>1978&ndash;2000</span></label>
-<label class="tile"><input type="radio" name="year_built" value="After 2000"><span>After 2000</span></label>
-<label class="tile"><input type="radio" name="year_built" value="Not sure"><span>Not sure</span></label>
-</div>
-</fieldset>
-
-<fieldset class="q">
-<legend class="q-label">Do you own the home?</legend>
-<div class="tiles">
-<label class="tile"><input type="radio" name="ownership" value="I own it"><span>I own it</span></label>
-<label class="tile"><input type="radio" name="ownership" value="I rent it"><span>I rent it</span></label>
-<label class="tile"><input type="radio" name="ownership" value="Buying soon"><span>Buying soon</span></label>
-</div>
-<p class="inq-note" id="note-rent" aria-live="polite"></p>
-</fieldset>
-
-<fieldset class="q">
-<legend class="q-label">Will you live there during the work?</legend>
-<div class="tiles wide">
-<label class="tile"><input type="radio" name="occupied" value="Yes, we'll live there during the work"><span>Yes, we'll live there during the work</span></label>
-<label class="tile"><input type="radio" name="occupied" value="No"><span>No</span></label>
-</div>
-</fieldset>
-
-<fieldset class="q">
-<legend class="q-label">When would you like to start?</legend>
-<div class="tiles">
-<label class="tile"><input type="radio" name="start_timeline" value="As soon as possible"><span>As soon as possible</span></label>
-<label class="tile"><input type="radio" name="start_timeline" value="1&ndash;3 months"><span>1&ndash;3 months</span></label>
-<label class="tile"><input type="radio" name="start_timeline" value="3&ndash;6 months"><span>3&ndash;6 months</span></label>
-<label class="tile"><input type="radio" name="start_timeline" value="Just exploring"><span>Just exploring</span></label>
-</div>
-</fieldset>
-
-<fieldset class="q">
-<legend class="q-label">Where are you in planning?</legend>
-<div class="tiles">
-<label class="tile"><input type="radio" name="stage" value="Just ideas"><span>Just ideas</span></label>
-<label class="tile"><input type="radio" name="stage" value="Have inspiration photos"><span>Have inspiration photos</span></label>
-<label class="tile"><input type="radio" name="stage" value="Have designs or drawings"><span>Have designs or drawings</span></label>
-<label class="tile"><input type="radio" name="stage" value="Have permits"><span>Have permits</span></label>
-</div>
-</fieldset>
-
-<fieldset class="q">
-<legend class="q-label">Interested in financing options?</legend>
-<div class="tiles">
-<label class="tile"><input type="radio" name="financing_interest" value="Yes"><span>Yes</span></label>
-<label class="tile"><input type="radio" name="financing_interest" value="No"><span>No</span></label>
-</div>
-</fieldset>
-
-<fieldset class="q">
-<legend class="q-label">Who's involved in the decision?</legend>
-<div class="tiles">
-<label class="tile"><input type="radio" name="decision_makers" value="Just me"><span>Just me</span></label>
-<label class="tile"><input type="radio" name="decision_makers" value="Me and a spouse/partner"><span>Me and a spouse/partner</span></label>
-<label class="tile"><input type="radio" name="decision_makers" value="Others involved"><span>Others involved</span></label>
-</div>
-</fieldset>
-
-<fieldset class="q">
-<legend class="q-label">Best time to reach you</legend>
-<div class="tiles">
-<label class="tile"><input type="radio" name="best_time" value="Morning"><span>Morning</span></label>
-<label class="tile"><input type="radio" name="best_time" value="Afternoon"><span>Afternoon</span></label>
-<label class="tile"><input type="radio" name="best_time" value="Evening"><span>Evening</span></label>
-</div>
-</fieldset>
-
-<div class="q">
-<label class="q-label" for="notes">Anything else we should know?</label>
-<textarea class="field" id="notes" name="notes" rows="4" maxlength="2000"></textarea>
-</div>
-</fieldset>
-
 <div class="inq-alert" id="inq-alert" role="alert" aria-live="assertive"></div>
 <div class="inq-send-error" id="inq-send-error" role="alert" hidden></div>
 
 <div class="inq-nav">
 <button type="button" class="btn ghost" id="inq-back" hidden>Back</button>
 <button type="button" class="btn next" id="inq-next">Next</button>
-<button type="submit" class="btn next" id="inq-submit" hidden>Get my free estimate</button>
-<button type="button" class="skip-link" id="inq-skip" hidden>Skip</button>
-<button type="button" class="btn next" id="inq-enrich" hidden>Send details</button>
+<button type="submit" class="btn next" id="inq-submit" hidden>Request a Free Consultation</button>
 </div>
 <p class="consent" id="inq-consent" hidden>By submitting, you agree Great Britton Construction may contact you about your project by phone, text or email.</p>
 </form>
@@ -1118,16 +914,14 @@ var reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 var card=document.getElementById('inq-card');
 var steps=[].slice.call(form.querySelectorAll('.inq-step'));
 var current=0;
-var STEP_NAMES=['Your project','Contact','Help us prepare'];
+var STEP_NAMES=['Your project','Contact'];
 var btnBack=document.getElementById('inq-back'),btnNext=document.getElementById('inq-next'),btnSubmit=document.getElementById('inq-submit');
-var btnSkip=document.getElementById('inq-skip'),btnEnrich=document.getElementById('inq-enrich');
 var consent=document.getElementById('inq-consent');
 var stepLabel=document.getElementById('inq-step-label'),stepName=document.getElementById('inq-step-name');
 var bar=document.getElementById('inq-bar'),barFill=bar.querySelector('span');
 var alertBox=document.getElementById('inq-alert'),sendError=document.getElementById('inq-send-error');
-var success=document.getElementById('inq-success'),step3=document.getElementById('step3');
-var SUBMIT_LABEL=btnSubmit.textContent,ENRICH_LABEL=btnEnrich.textContent;
-var MULTI=['bath_which','kitchen_items','motivation'];
+var success=document.getElementById('inq-success');
+var SUBMIT_LABEL=btnSubmit.textContent;
 var viewed={};
 
 function radioVal(name){var c=form.querySelector('input[name="'+name+'"]:checked:not(:disabled)');return c?c.value:'';}
@@ -1158,14 +952,12 @@ KEYS.concat(['landing_page','referrer']).forEach(function(k){if(form.elements[k]
 function showStep(i,moveFocus){
 steps.forEach(function(s,n){s.hidden=(n!==i);});
 current=i;
-var opt=(i===2);
-stepLabel.textContent=opt?'Optional':'Step '+(i+1)+' of 2';
+stepLabel.textContent='Step '+(i+1)+' of 2';
 stepName.textContent=STEP_NAMES[i];
-barFill.style.width=(opt?100:(i+1)*50)+'%';
-bar.setAttribute('aria-valuenow',String(Math.min(i+1,2)));
-bar.setAttribute('aria-valuetext',opt?'Optional: Help us prepare':'Step '+(i+1)+' of 2: '+STEP_NAMES[i]);
+barFill.style.width=((i+1)*50)+'%';
+bar.setAttribute('aria-valuenow',String(i+1));
+bar.setAttribute('aria-valuetext','Step '+(i+1)+' of 2: '+STEP_NAMES[i]);
 btnBack.hidden=(i!==1);btnNext.hidden=(i!==0);btnSubmit.hidden=(i!==1);consent.hidden=(i!==1);
-btnSkip.hidden=!opt;btnEnrich.hidden=!opt;
 alertBox.textContent='';sendError.hidden=true;
 if(i===0){var io=('IntersectionObserver' in window)&&new IntersectionObserver(function(en){if(en[0].isIntersecting){stepView(1);io.disconnect();}});if(io)io.observe(card);else stepView(1);}
 else stepView(i+1);
@@ -1206,29 +998,11 @@ return true;
 function onEdit(e){
 var q=e.target.closest&&e.target.closest('.q');
 if(q&&q.classList.contains('invalid')&&!checkQ(q))setErr(q,'');
-if(e.type==='change')updateConditionals();
 }
 form.addEventListener('input',onEdit);form.addEventListener('change',onEdit);
 
-/* ---- Conditional fields ---- */
-var NEW_BUILD=['Addition','ADU','Retaining Wall'];
-function setCond(el,show){el.hidden=!show;el.disabled=!show;if(!show)el.querySelectorAll('.q').forEach(function(q){setErr(q,'');});}
-function setText(id,t){var el=document.getElementById(id);if(el&&el.textContent!==t)el.textContent=t;}
-function updateConditionals(){
-var pt=radioVal('project_type');
-form.querySelectorAll('[data-show-for]').forEach(function(el){setCond(el,el.getAttribute('data-show-for').split('|').indexOf(pt)>-1);});
-var isNew=NEW_BUILD.indexOf(pt)>-1;
-form.querySelectorAll('input[name="scope"]').forEach(function(inp){
-var forNew=(inp.value==='New construction');var show=isNew?forNew:!forNew;
-inp.closest('.tile').hidden=!show;inp.disabled=!show;if(!show)inp.checked=false;
-});
-if(isNew){var nc=form.querySelector('input[name="scope"][value="New construction"]');if(nc&&!nc.checked){nc.checked=true;var sq=nc.closest('.q');if(sq)setErr(sq,'');}}
-var ht=radioVal('home_type');
-setText('note-hoa',(ht==='Townhome'||ht==='Condo')?'HOA approval may be needed — we can help with that.':'');
-setText('note-rent',radioVal('ownership')==='I rent it'?"We'll need the property owner's approval to move forward.":'');
-}
-
-['zip','bath_count','approx_sqft'].forEach(function(id){var el=document.getElementById(id);if(el)el.addEventListener('input',function(){var c=el.value.replace(/\D/g,'');if(c!==el.value)el.value=c;});});
+var zip=document.getElementById('zip');
+if(zip)zip.addEventListener('input',function(){var c=zip.value.replace(/\D/g,'');if(c!==zip.value)zip.value=c;});
 var phone=document.getElementById('phone');
 phone.addEventListener('input',function(e){
 if(e.inputType&&e.inputType.indexOf('delete')===0)return;
@@ -1238,13 +1012,7 @@ phone.value=out;
 });
 phone.addEventListener('blur',function(){var d=phone.value.replace(/\D/g,'');if(d.length===11&&d.charAt(0)==='1')d=d.slice(1);if(d.length===10)phone.value='('+d.slice(0,3)+') '+d.slice(3,6)+'-'+d.slice(6);});
 
-function leadScore(){
-var own=radioVal('ownership'),b=radioVal('budget'),t=radioVal('start_timeline');
-var budgetOk=['$15K–$30K','$30K–$60K','$60K–$100K','$100K–$200K','$200K+'].indexOf(b)>-1;
-if(own==='I own it'&&budgetOk&&(t==='As soon as possible'||t==='1–3 months'))return 'hot';
-if(t==='Just exploring'&&b==='Not sure yet')return 'nurture';
-return 'warm';
-}
+function leadScore(){return 'warm';}
 
 btnNext.addEventListener('click',function(){if(validateStep(0)){track('form_step_complete',{step:1});showStep(1,true);}});
 btnBack.addEventListener('click',function(){showStep(0,true);});
@@ -1254,7 +1022,6 @@ form.elements.submitted_at.value=new Date().toISOString();
 form.elements.lead_score.value=leadScore();
 form.elements.submission_type.value=type;
 var fd=new FormData(form);fd.delete('company_website');
-MULTI.forEach(function(n){var vals=fd.getAll(n);fd.delete(n);if(form.querySelector('input[name="'+n+'"]:not(:disabled)'))fd.set(n,vals.join(', '));});
 return fd;
 }
 function post(fd){
@@ -1290,27 +1057,10 @@ track('form_step_complete',{step:2});
 track('generate_lead',{form:'start_inquiry',project_type:detail.project_type,lead_score:detail.lead_score});
 if(!honeypotHit) trackNextdoorLead();
 try{window.dispatchEvent(new CustomEvent('lead_submitted',{detail:detail}));}catch(err){}
-step3.disabled=false;
-showStep(2,true);
+finish();
 }).catch(function(){busy(btnSubmit,false,SUBMIT_LABEL);showSendError("Sorry, we couldn't send your request. Please try again,");});
 });
 
-/* Step 3: optional follow-up with the same lead_id */
-btnEnrich.addEventListener('click',function(){
-if(btnEnrich.disabled)return;
-var answered=[].slice.call(step3.querySelectorAll('input:checked')).length>0||document.getElementById('notes').value.trim();
-if(!answered){finish();return;}
-var fd=payload('enrichment');
-busy(btnEnrich,true,ENRICH_LABEL);btnSkip.disabled=true;
-post(fd).then(function(){
-track('form_step_complete',{step:3});
-track('lead_enriched',{lead_score:form.elements.lead_score.value,budget:radioVal('budget'),start_timeline:radioVal('start_timeline')});
-finish();
-}).catch(function(){busy(btnEnrich,false,ENRICH_LABEL);btnSkip.disabled=false;showSendError("Your request was received, but these extra details didn't send. Try again, skip,");});
-});
-btnSkip.addEventListener('click',finish);
-
-updateConditionals();
 showStep(0,false);
 })();
 </script>
