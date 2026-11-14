@@ -202,6 +202,8 @@ section{padding:64px 0;border-top:1px solid var(--line)}
 section h2{font-size:clamp(2rem,5vw,3.2rem);margin:12px 0 28px}
 .section-intro{color:var(--muted);max-width:620px;margin:-12px 0 28px}
 .card{background:var(--panel);border:1px solid var(--line);padding:26px}
+a.card{display:block;color:inherit;text-decoration:none;cursor:pointer;transition:border-color .2s ease,background-color .2s ease}
+a.card:hover,a.card:focus-visible{border-color:var(--gold);background:#1a1e22}
 .card h3{font-size:1.6rem;margin-bottom:8px}
 .card p{color:var(--muted);font-size:.95rem}
 .card .tag{display:block;color:var(--gold);font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px}
@@ -479,11 +481,11 @@ footer a{display:inline-flex;align-items:center;min-height:44px}
 <div class="eyebrow">What we build</div>
 <h2>Home projects we take on</h2>
 <div class="grid">
-<div class="card"><span class="tag">01 / Kitchens</span><h3>Kitchen remodels</h3><p>Cabinets, countertops, islands, layout changes and finish work.</p></div>
-<div class="card"><span class="tag">02 / Bathrooms</span><h3>Bathroom remodels</h3><p>Showers, tubs, vanities, tile and layout changes.</p></div>
-<div class="card"><span class="tag">03 / ADUs</span><h3>ADUs &amp; additions</h3><p>Accessory dwelling units, additions, site coordination and construction.</p></div>
-<div class="card"><span class="tag">04 / Sitework</span><h3>Retaining walls</h3><p>Strong, well-built retaining walls that add stability, function, and lasting value to your property.</p></div>
-<div class="card"><span class="tag">05 / Structure</span><h3>Structural work</h3><p>Framing, foundations and engineering coordination for additions and structural changes.</p></div>
+<a class="card" href="#estimate" data-project="Kitchen" data-cta="service_card" data-loc="services"><span class="tag">01 / Kitchens</span><h3>Kitchen remodels</h3><p>Cabinets, countertops, islands, layout changes and finish work.</p></a>
+<a class="card" href="#estimate" data-project="Bathroom" data-cta="service_card" data-loc="services"><span class="tag">02 / Bathrooms</span><h3>Bathroom remodels</h3><p>Showers, tubs, vanities, tile and layout changes.</p></a>
+<a class="card" href="#estimate" data-project="Addition / ADU" data-cta="service_card" data-loc="services"><span class="tag">03 / ADUs</span><h3>ADUs &amp; additions</h3><p>Accessory dwelling units, additions, site coordination and construction.</p></a>
+<a class="card" href="#estimate" data-project="Other" data-cta="service_card" data-loc="services"><span class="tag">04 / Sitework</span><h3>Retaining walls</h3><p>Strong, well-built retaining walls that add stability, function, and lasting value to your property.</p></a>
+<a class="card" href="#estimate" data-project="Other" data-cta="service_card" data-loc="services"><span class="tag">05 / Structure</span><h3>Structural work</h3><p>Framing, foundations and engineering coordination for additions and structural changes.</p></a>
 </div>
 
 </div>
@@ -937,6 +939,20 @@ if(vis)bar.setAttribute('aria-hidden','true');else bar.removeAttribute('aria-hid
 var form=document.getElementById('inquiry-form');
 if(!form) return;
 form.setAttribute('action',FORM_ENDPOINT_URL);
+
+/* Service cards → estimate form with project type preselected */
+document.querySelectorAll('#services a.card[data-project]').forEach(function(card){
+  card.addEventListener('click',function(){
+    var val=card.getAttribute('data-project')||'';
+    var radios=form.querySelectorAll('input[name="project_type"]');
+    for(var i=0;i<radios.length;i++){
+      if(radios[i].value===val){radios[i].checked=true;break;}
+    }
+    var err=document.getElementById('e-project_type');
+    if(err) err.textContent='';
+    showStep(0,false);
+  });
+});
 
 var reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 var card=document.getElementById('inq-card');
