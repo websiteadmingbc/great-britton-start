@@ -174,13 +174,13 @@ button.btn{font-family:inherit;cursor:pointer;border:0}
 .hero .alt-contact a{color:var(--text);font-weight:700;display:inline-block;padding:10px 2px;text-underline-offset:3px}
 .trust{display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:22px;color:#cfc9bb;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase}
 .trust b{color:var(--text)}
-.google-rating{display:inline-flex;align-items:center;flex-wrap:wrap;gap:6px 10px;color:var(--text);text-decoration:none;font-size:.95rem;line-height:1.3}
-.google-rating:hover .google-rating-count{color:var(--gold)}
-.google-rating-score{font-weight:700}
-.google-rating-stars{color:var(--gold);letter-spacing:.06em;font-size:1.05em;line-height:1}
-.google-rating-count{color:#cfc9bb;text-decoration:underline;text-underline-offset:3px}
-.hero .google-rating{margin-top:18px}
-.reviews-rating{margin:0 0 22px}
+.google-rating{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;width:100%;gap:6px;color:var(--text);margin:0;line-height:1}
+.google-rating-row{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap}
+.google-rating-score{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:700;font-size:clamp(3.2rem,9vw,5.5rem);letter-spacing:.02em}
+.google-rating-stars{color:var(--gold);letter-spacing:.12em;font-size:clamp(1.8rem,5vw,3rem);line-height:1}
+.google-rating-count{color:#cfc9bb;font-size:clamp(1rem,2.4vw,1.25rem);font-weight:500;letter-spacing:.04em}
+.hero .google-rating{position:relative;z-index:1;margin:8px 0 28px;padding:0 20px}
+.reviews-rating{margin:8px 0 28px}
 @media (max-width:768px){
   .hero .ctas{flex-direction:column;align-items:stretch}
   .hero .ctas .btn{width:100%}
@@ -190,6 +190,7 @@ button.btn{font-family:inherit;cursor:pointer;border:0}
   .hero-media{position:relative;inset:auto;margin:40px 0;min-height:540px;border:1px solid var(--line)}
   .hero-media::after{background:linear-gradient(180deg,rgba(10,12,13,0) 60%,rgba(10,12,13,.35) 100%)}
   .hero-copy{padding:72px 0 64px;align-self:center}
+  .hero .google-rating{grid-column:1/-1;margin:-8px 0 40px;padding:0}
 }
 
 /* ===== Neighbor reviews ===== */
@@ -414,11 +415,6 @@ footer a{display:inline-flex;align-items:center;min-height:44px}
 <a class="btn ghost" href="tel:+14084553800" data-cta="call" data-loc="hero">Call (408) 455-3800</a>
 </div>
 <p class="alt-contact">or <a href="sms:+14084553800" data-cta="text" data-loc="hero">text us</a> &middot; <a href="#estimate" data-email data-subject="Remodel estimate request" data-cta="email" data-loc="hero">email us</a></p>
-<a class="google-rating" href="https://www.google.com/maps/search/?api=1&amp;query=Great+Britton+Construction+San+Jose" target="_blank" rel="noopener noreferrer" data-cta="google_reviews" data-loc="hero" aria-label="5.0 out of 5 stars from 3 Google reviews">
-<span class="google-rating-score">5.0</span>
-<span class="google-rating-stars" aria-hidden="true">★★★★★</span>
-<span class="google-rating-count">3 Google reviews</span>
-</a>
 <div class="trust">
 <div><b>CSLB #1025488</b> &middot; Licensed General B</div>
 <div><b>Bay Area</b> &middot; Residential projects</div>
@@ -427,6 +423,13 @@ footer a{display:inline-flex;align-items:center;min-height:44px}
 <figure class="hero-media">
 <img src="assets/img/hero-bath-960.jpg" srcset="assets/img/hero-bath-640.jpg 640w, assets/img/hero-bath-960.jpg 960w, assets/img/hero-bath-1280.jpg 1280w" sizes="(min-width: 900px) 46vw, 100vw" width="960" height="1280" alt="Remodeled bathroom with dark stone tile, glass shower and freestanding tub" loading="eager" fetchpriority="high">
 </figure>
+<p class="google-rating" aria-label="5.0 out of 5 stars from 3 Google reviews">
+<span class="google-rating-row">
+<span class="google-rating-score">5.0</span>
+<span class="google-rating-stars" aria-hidden="true">★★★★★</span>
+</span>
+<span class="google-rating-count">3 Google reviews</span>
+</p>
 </div>
 </div>
 
@@ -436,11 +439,13 @@ footer a{display:inline-flex;align-items:center;min-height:44px}
 <div class="eyebrow">Reviews</div>
 <h2>What homeowners say about working with Paul</h2>
 <p class="reviews-sub">Reviews from our customers on Google and Yelp</p>
-<a class="google-rating reviews-rating" href="https://www.google.com/maps/search/?api=1&amp;query=Great+Britton+Construction+San+Jose" target="_blank" rel="noopener noreferrer" data-cta="google_reviews" data-loc="reviews" aria-label="5.0 out of 5 stars from 3 Google reviews">
+<p class="google-rating reviews-rating" aria-label="5.0 out of 5 stars from 3 Google reviews">
+<span class="google-rating-row">
 <span class="google-rating-score">5.0</span>
 <span class="google-rating-stars" aria-hidden="true">★★★★★</span>
+</span>
 <span class="google-rating-count">3 Google reviews</span>
-</a>
+</p>
 <div class="yelp-embed">
 <span class="yelp-review" data-review-id="0oWVzuZEDrCyrBkBzYHwgw" data-hostname="www.yelp.com">Read <a href="https://www.yelp.com/user_details?userid=UZJZ7iq0wkCbFZiWC-wvlg" target="_blank" rel="nofollow noopener">Sylvester G.</a>'s <a href="https://www.yelp.com/biz/great-britton-construction-san-jose?hrid=0oWVzuZEDrCyrBkBzYHwgw" target="_blank" rel="nofollow noopener">review</a> of <a href="https://www.yelp.com/biz/jUns1hwzKcQGaskE_fdPRQ" target="_blank" rel="nofollow noopener">Great Britton Construction</a> on <a href="https://www.yelp.com" target="_blank" rel="nofollow noopener">Yelp</a></span>
 </div>
