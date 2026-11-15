@@ -254,6 +254,15 @@ a.card:hover,a.card:focus-visible{border-color:var(--gold);background:#1a1e22}
 .ranges span{color:var(--gold);font-weight:700}
 .ranges-foot{margin-top:6px}
 
+/* ===== Pricing ===== */
+.pricing-list{list-style:none;max-width:520px;margin:0 0 22px}
+.pricing-list li{display:flex;align-items:baseline;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid var(--line);font-size:1.1rem}
+.pricing-list li:first-child{border-top:1px solid var(--line)}
+.pricing-list span{color:var(--text)}
+.pricing-list b{font-family:"Barlow Condensed",Impact,sans-serif;font-size:clamp(1.8rem,4vw,2.4rem);font-weight:700;color:var(--gold);letter-spacing:.02em;white-space:nowrap}
+.pricing-note{color:var(--muted);max-width:560px;margin:0;font-size:1.02rem;line-height:1.55}
+.pricing-note a{color:var(--gold);font-weight:700;text-underline-offset:3px}
+
 /* How it works */
 ol.steps{list-style:none;counter-reset:s;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
 ol.steps li{counter-increment:s;border-left:2px solid var(--gold);padding:4px 0 4px 18px}
@@ -397,7 +406,7 @@ footer a{display:inline-flex;align-items:center;min-height:44px}
 <img src="https://greatbrittongc.com/assets/great-britton-logo.png" alt="Great Britton Construction" width="132" height="44">
 <div class="actions">
 <a class="phone" href="tel:+14084553800" data-cta="call" data-loc="header">(408) 455-3800</a>
-<a class="btn sm" href="#estimate" data-cta="estimate" data-loc="header">Request a Free Consultation</a>
+<a class="btn sm" href="#ballpark" data-cta="ballpark" data-loc="header">Get a ballpark</a>
 </div>
 </div>
 </header>
@@ -408,13 +417,13 @@ footer a{display:inline-flex;align-items:center;min-height:44px}
 <div class="hero-copy">
 <div class="eyebrow">San Jose &amp; South Bay Neighbors</div>
 <h1>Kitchens &amp; baths,<br><span>built to last.</span></h1>
-<p class="lede">Kitchen and bathroom remodels from a local San Jose team that shows up, communicates, and does it right the first time. Also building additions and ADUs.</p>
-<p class="lede-offer" id="nextdoor-offer" hidden><strong>Nextdoor neighbors get a free design consultation with your estimate.</strong></p>
+<p class="lede">Licensed local general contractor. Clear ballparks up front, one point of contact.</p>
+<p class="lede-offer" id="nextdoor-offer" hidden><strong>Nextdoor neighbors get a free design consult with your ballpark.</strong></p>
 <div class="ctas">
-<a class="btn" id="hero-cta-estimate" href="#estimate" data-cta="estimate" data-loc="hero">Get a ballpark price range</a>
+<a class="btn" id="hero-cta-estimate" href="#ballpark" data-cta="ballpark" data-loc="hero">Get a ballpark price range</a>
 <a class="btn ghost" href="tel:+14084553800" data-cta="call" data-loc="hero">Call (408) 455-3800</a>
 </div>
-<p class="alt-contact">or <a href="sms:+14084553800" data-cta="text" data-loc="hero">text us</a> &middot; <a href="#estimate" data-email data-subject="Remodel estimate request" data-cta="email" data-loc="hero">email us</a></p>
+<p class="alt-contact">or <a href="sms:+14084553800" data-cta="text" data-loc="hero">text us</a> &middot; <a href="#ballpark" data-email data-subject="Ballpark price request" data-cta="email" data-loc="hero">email us</a></p>
 <div class="trust">
 <div><b>CSLB #1025488</b> &middot; Licensed General B</div>
 <div><b>Bay Area</b> &middot; Residential projects</div>
@@ -425,6 +434,20 @@ footer a{display:inline-flex;align-items:center;min-height:44px}
 </figure>
 </div>
 </div>
+
+<!-- ===== Pricing ===== -->
+<section id="pricing">
+<div class="wrap">
+<div class="eyebrow">Pricing</div>
+<h2>Remodel pricing starts at</h2>
+<ul class="pricing-list">
+<li><span>Bathroom refresh</span><b>$15K</b></li>
+<li><span>Full bathroom</span><b>$25K</b></li>
+<li><span>Kitchen</span><b>$35K</b></li>
+</ul>
+<p class="pricing-note">Your range depends on size, layout changes and finishes. <a href="#ballpark" data-cta="ballpark" data-loc="pricing">Tell us about your project</a> and we&rsquo;ll narrow it down.</p>
+</div>
+</section>
 
 <!-- ===== Neighbor reviews (from great-britton-paul-testimonials.html) ===== -->
 <section id="reviews">
@@ -481,11 +504,11 @@ footer a{display:inline-flex;align-items:center;min-height:44px}
 <div class="eyebrow">What we build</div>
 <h2>Home projects we take on</h2>
 <div class="grid">
-<a class="card" href="#estimate" data-project="Kitchen" data-cta="service_card" data-loc="services"><span class="tag">01 / Kitchens</span><h3>Kitchen remodels</h3><p>Cabinets, countertops, islands, layout changes and finish work.</p></a>
-<a class="card" href="#estimate" data-project="Bathroom" data-cta="service_card" data-loc="services"><span class="tag">02 / Bathrooms</span><h3>Bathroom remodels</h3><p>Showers, tubs, vanities, tile and layout changes.</p></a>
-<a class="card" href="#estimate" data-project="Addition / ADU" data-cta="service_card" data-loc="services"><span class="tag">03 / ADUs</span><h3>ADUs &amp; additions</h3><p>Accessory dwelling units, additions, site coordination and construction.</p></a>
-<a class="card" href="#estimate" data-project="Other" data-cta="service_card" data-loc="services"><span class="tag">04 / Sitework</span><h3>Retaining walls</h3><p>Strong, well-built retaining walls that add stability, function, and lasting value to your property.</p></a>
-<a class="card" href="#estimate" data-project="Other" data-cta="service_card" data-loc="services"><span class="tag">05 / Structure</span><h3>Structural work</h3><p>Framing, foundations and engineering coordination for additions and structural changes.</p></a>
+<a class="card" href="#ballpark" data-project="Kitchen" data-cta="service_card" data-loc="services"><span class="tag">01 / Kitchens</span><h3>Kitchen remodels</h3><p>Cabinets, countertops, islands, layout changes and finish work.</p></a>
+<a class="card" href="#ballpark" data-project="Bathroom" data-cta="service_card" data-loc="services"><span class="tag">02 / Bathrooms</span><h3>Bathroom remodels</h3><p>Showers, tubs, vanities, tile and layout changes.</p></a>
+<a class="card" href="#ballpark" data-project="Addition / ADU" data-cta="service_card" data-loc="services"><span class="tag">03 / ADUs</span><h3>ADUs &amp; additions</h3><p>Accessory dwelling units, additions, site coordination and construction.</p></a>
+<a class="card" href="#ballpark" data-project="Other" data-cta="service_card" data-loc="services"><span class="tag">04 / Sitework</span><h3>Retaining walls</h3><p>Strong, well-built retaining walls that add stability, function, and lasting value to your property.</p></a>
+<a class="card" href="#ballpark" data-project="Other" data-cta="service_card" data-loc="services"><span class="tag">05 / Structure</span><h3>Structural work</h3><p>Framing, foundations and engineering coordination for additions and structural changes.</p></a>
 </div>
 
 </div>
@@ -496,13 +519,14 @@ footer a{display:inline-flex;align-items:center;min-height:44px}
 <div class="wrap">
 <div class="eyebrow">Who you'll work with</div>
 <h2>Meet your team</h2>
+<p class="section-intro">Dylan is your one point of contact from the first call to the final walkthrough.</p>
 <div class="team-list">
 <div class="team">
 <img src="assets/img/dylan-simpson.jpg" alt="Dylan Simpson, Client Advisor at Great Britton Construction" width="182" height="182" loading="lazy" decoding="async">
 <div>
 <h3>Dylan Simpson</h3>
 <p class="role">Client Advisor</p>
-<p>Dylan is your first call at Great Britton, and he stays with you through the final walkthrough. For more than 15 years he&rsquo;s helped people turn big ideas into clear plans. He listens for what matters, lays out the options honestly, and keeps you updated so you always know what&rsquo;s next. Paul and the crew bring the craftsmanship, and Dylan makes sure the process is just as solid. Dylan is a San Jose homeowner himself, so he knows what it means to invest in the place you live.</p>
+<p>Dylan is the single person you deal with at Great Britton from first call to final walkthrough. For more than 15 years he&rsquo;s helped people turn big ideas into clear plans. He listens for what matters, lays out the options honestly, and keeps you updated so you always know what&rsquo;s next. Paul and the crew bring the craftsmanship, and Dylan makes sure the process is just as solid. Dylan is a San Jose homeowner himself, so he knows what it means to invest in the place you live.</p>
 </div>
 </div>
 <div class="team">
@@ -523,7 +547,7 @@ footer a{display:inline-flex;align-items:center;min-height:44px}
 <h2>Simple from the first call</h2>
 <ol class="steps">
 <li><strong>Tell us about your project</strong><span>Call, text or email. We'll ask a few questions about scope, timing and budget.</span></li>
-<li><strong>Get a clear estimate</strong><span>We walk the site, handle permits when needed, and give you a written estimate you can understand.</span></li>
+<li><strong>Get your ballpark, then a written proposal</strong><span>We walk the site, handle permits when needed, and give you a clear written proposal you can understand.</span></li>
 <li><strong>We build it right</strong><span>A coordinated team, steady updates, and work that's made to last.</span></li>
 </ol>
 </div>
@@ -536,27 +560,25 @@ footer a{display:inline-flex;align-items:center;min-height:44px}
 <div class="eyebrow">Questions</div>
 <h2>Good to know</h2>
 <div class="faq">
-<div class="faq-item"><h4><button type="button" class="faq-q" id="faq-q1" aria-expanded="false" aria-controls="faq-a1">How much does a kitchen or bathroom remodel cost?<span class="faq-icon" aria-hidden="true"></span></button></h4>
-<div class="faq-a" id="faq-a1"><div><p>Kitchen remodels often run about $25,000&ndash;$75,000+, and bathrooms about $15,000&ndash;$45,000+, depending on size, layout changes, and finishes. We'll give you a written estimate for your home.</p></div></div></div>
-<div class="faq-item"><h4><button type="button" class="faq-q" id="faq-q2" aria-expanded="false" aria-controls="faq-a2">How long does a remodel take?<span class="faq-icon" aria-hidden="true"></span></button></h4>
-<div class="faq-a" id="faq-a2"><div><p>A typical bathroom takes about 2&ndash;4 weeks on site; a kitchen about 4&ndash;8 weeks, longer if we're changing the layout or waiting on custom materials or permits.</p></div></div></div>
-<div class="faq-item"><h4><button type="button" class="faq-q" id="faq-q3" aria-expanded="false" aria-controls="faq-a3">How soon can you start?<span class="faq-icon" aria-hidden="true"></span></button></h4>
-<div class="faq-a" id="faq-a3"><div><p>Many projects can start within a few weeks once the estimate is approved and any permits are in hand. We'll give you a realistic date when you reach out.</p></div></div></div>
-<div class="faq-item"><h4><button type="button" class="faq-q" id="faq-q4" aria-expanded="false" aria-controls="faq-a4">Do you handle permits and inspections?<span class="faq-icon" aria-hidden="true"></span></button></h4>
-<div class="faq-a" id="faq-a4"><div><p>Yes. We handle permits and coordinate required inspections.</p></div></div></div>
-<div class="faq-item"><h4><button type="button" class="faq-q" id="faq-q5" aria-expanded="false" aria-controls="faq-a5">Do I need a designer or drawings first?<span class="faq-icon" aria-hidden="true"></span></button></h4>
-<div class="faq-a" id="faq-a5"><div><p>No. Many clients start with just ideas or inspiration photos. We'll help you define scope and coordinate engineering or drawings when a project needs them.</p></div></div></div>
+<div class="faq-item"><h4><button type="button" class="faq-q" id="faq-q1" aria-expanded="false" aria-controls="faq-a1">How long does a remodel take?<span class="faq-icon" aria-hidden="true"></span></button></h4>
+<div class="faq-a" id="faq-a1"><div><p>A typical bathroom takes about 2&ndash;4 weeks on site; a kitchen about 4&ndash;8 weeks, longer if we're changing the layout or waiting on custom materials or permits.</p></div></div></div>
+<div class="faq-item"><h4><button type="button" class="faq-q" id="faq-q2" aria-expanded="false" aria-controls="faq-a2">How soon can you start?<span class="faq-icon" aria-hidden="true"></span></button></h4>
+<div class="faq-a" id="faq-a2"><div><p>Many projects can start within a few weeks once the proposal is approved and any permits are in hand. We'll give you a realistic date when you reach out.</p></div></div></div>
+<div class="faq-item"><h4><button type="button" class="faq-q" id="faq-q3" aria-expanded="false" aria-controls="faq-a3">Do you handle permits and inspections?<span class="faq-icon" aria-hidden="true"></span></button></h4>
+<div class="faq-a" id="faq-a3"><div><p>Yes. We handle permits and coordinate required inspections.</p></div></div></div>
+<div class="faq-item"><h4><button type="button" class="faq-q" id="faq-q4" aria-expanded="false" aria-controls="faq-a4">Do I need a designer or drawings first?<span class="faq-icon" aria-hidden="true"></span></button></h4>
+<div class="faq-a" id="faq-a4"><div><p>No. Many clients start with just ideas or inspiration photos. We'll help you define scope and coordinate engineering or drawings when a project needs them.</p></div></div></div>
 </div>
 </div>
 </section>
 
-<!-- ===== Estimate form ===== -->
-<section id="estimate">
+<!-- ===== Ballpark form ===== -->
+<section id="ballpark">
 <div class="wrap">
 <div class="final">
 <div class="eyebrow">Ready when you are</div>
-<h2>Let's talk about your remodel</h2>
-<p>Tell us about your project and we'll follow up within one business day.</p>
+<h2>Get your ballpark price range</h2>
+<p>Tell us about your project and we&rsquo;ll follow up within one business day with a clearer range.</p>
 </div>
 
 <div class="estimate-layout">
@@ -601,6 +623,26 @@ footer a{display:inline-flex;align-items:center;min-height:44px}
 <label class="tile"><input type="radio" name="project_type" value="Other"><span>Other</span></label>
 </div>
 <p class="q-error" id="e-project_type"></p>
+</fieldset>
+
+<fieldset class="q" data-validate="choice" data-label="Rough size" aria-describedby="e-project_size">
+<legend class="q-label">Rough size?</legend>
+<div class="tiles">
+<label class="tile"><input type="radio" name="project_size" value="Small"><span>Small</span></label>
+<label class="tile"><input type="radio" name="project_size" value="Medium"><span>Medium</span></label>
+<label class="tile"><input type="radio" name="project_size" value="Large"><span>Large</span></label>
+</div>
+<p class="q-error" id="e-project_size"></p>
+</fieldset>
+
+<fieldset class="q" data-validate="choice" data-label="Finish level" aria-describedby="e-finish_level">
+<legend class="q-label">Finish level?</legend>
+<div class="tiles">
+<label class="tile"><input type="radio" name="finish_level" value="Budget"><span>Budget</span></label>
+<label class="tile"><input type="radio" name="finish_level" value="Mid"><span>Mid</span></label>
+<label class="tile"><input type="radio" name="finish_level" value="High-end"><span>High-end</span></label>
+</div>
+<p class="q-error" id="e-finish_level"></p>
 </fieldset>
 
 <div class="q">
@@ -672,7 +714,7 @@ footer a{display:inline-flex;align-items:center;min-height:44px}
 <h3>What to expect</h3>
 <ul class="reassure">
 <li>No-pressure on-site walkthrough</li>
-<li>Written, itemized estimate</li>
+<li>Written, itemized proposal</li>
 <li>Licensed &amp; insured &middot; CSLB #1025488</li>
 <li>We reply within one business day</li>
 <li>Project-specific workmanship warranties</li>
@@ -684,7 +726,7 @@ footer a{display:inline-flex;align-items:center;min-height:44px}
 <p>Rather talk it through? Reach us directly.</p>
 <div class="ctas">
 <a class="btn" href="tel:+14084553800" data-cta="call" data-loc="form">Call (408) 455-3800</a>
-<a class="btn ghost" href="#estimate" data-email data-email-label="Email {email}" data-subject="Remodel estimate request" data-cta="email" data-loc="form">Email us</a>
+<a class="btn ghost" href="#ballpark" data-email data-email-label="Email {email}" data-subject="Ballpark price request" data-cta="email" data-loc="form">Email us</a>
 </div>
 </div>
 </div>
@@ -694,13 +736,13 @@ footer a{display:inline-flex;align-items:center;min-height:44px}
 <footer>
 <div class="wrap">
 <div>&copy; <span id="y">2026</span> Great Britton Construction LLC &middot; CSLB #1025488</div>
-<div><a href="#estimate" data-email data-email-label="{email}" data-cta="email" data-loc="footer">Email us</a></div>
+<div><a href="#ballpark" data-email data-email-label="{email}" data-cta="email" data-loc="footer">Email us</a></div>
 </div>
 </footer>
 
 <nav class="mobile-bar" id="mobile-bar" aria-label="Quick contact">
 <a class="btn ghost" href="tel:+14084553800" data-cta="call" data-loc="mobile_bar">Call</a>
-<a class="btn" href="#estimate" data-cta="estimate" data-loc="mobile_bar">Free estimate</a>
+<a class="btn" href="#ballpark" data-cta="ballpark" data-loc="mobile_bar">Get a ballpark</a>
 </nav>
 
 <dialog class="lightbox" id="lightbox" aria-label="Project photo viewer">
@@ -750,7 +792,7 @@ function trackNextdoorCall(){
   var cta=document.getElementById('hero-cta-estimate');
   if(SITE.SHOW_NEXTDOOR_OFFER){
     if(offer) offer.hidden=false;
-    if(cta) cta.textContent='Claim my free consultation';
+    if(cta) cta.textContent='Claim my free ballpark';
   }else{
     if(offer) offer.hidden=true;
     if(cta) cta.textContent='Get a ballpark price range';
@@ -768,7 +810,11 @@ document.querySelectorAll('a[data-email]').forEach(function(a){
 /* ---- CTA click tracking ---- */
 document.addEventListener('click',function(e){
   var a=e.target.closest&&e.target.closest('[data-cta]');
-  if(a) track('cta_click',{type:a.getAttribute('data-cta'),location:a.getAttribute('data-loc')||'page'});
+  if(!a) return;
+  var type=a.getAttribute('data-cta');
+  var loc=a.getAttribute('data-loc')||'page';
+  track('cta_click',{type:type,location:loc});
+  if(type==='ballpark') track('ballpark_cta_click',{location:loc});
 },true);
 
 /* ---- Mark visitor as coming from the start page (read by greatbrittongc.com for 30 days) ---- */
@@ -1058,7 +1104,16 @@ phone.addEventListener('blur',function(){var d=phone.value.replace(/\D/g,'');if(
 
 function leadScore(){return 'warm';}
 
-btnNext.addEventListener('click',function(){if(validateStep(0)){track('form_step_complete',{step:1});showStep(1,true);}});
+btnNext.addEventListener('click',function(){
+  if(!validateStep(0)) return;
+  track('form_step_complete',{step:1});
+  track('ballpark_step1_complete',{
+    project_type:radioVal('project_type'),
+    project_size:radioVal('project_size'),
+    finish_level:radioVal('finish_level')
+  });
+  showStep(1,true);
+});
 btnBack.addEventListener('click',function(){showStep(0,true);});
 
 function payload(type){
@@ -1093,12 +1148,29 @@ if(!form.elements.lead_id.value)form.elements.lead_id.value=uuid();
 var hp=form.elements.company_website;
 if(hp&&hp.value.trim()){honeypotHit=true;finish();return;} // bots: pretend it worked, send nothing — no conversion events
 var fd=payload('lead');
-var detail={project_type:radioVal('project_type'),lead_score:form.elements.lead_score.value,lead_id:form.elements.lead_id.value};
+var detail={
+  project_type:radioVal('project_type'),
+  project_size:radioVal('project_size'),
+  finish_level:radioVal('finish_level'),
+  lead_score:form.elements.lead_score.value,
+  lead_id:form.elements.lead_id.value
+};
 busy(btnSubmit,true,SUBMIT_LABEL);
 post(fd).then(function(){
 busy(btnSubmit,false,SUBMIT_LABEL);
 track('form_step_complete',{step:2});
-track('generate_lead',{form:'start_inquiry',project_type:detail.project_type,lead_score:detail.lead_score});
+track('ballpark_form_submit',{
+  project_type:detail.project_type,
+  project_size:detail.project_size,
+  finish_level:detail.finish_level
+});
+track('generate_lead',{
+  form:'start_inquiry',
+  project_type:detail.project_type,
+  project_size:detail.project_size,
+  finish_level:detail.finish_level,
+  lead_score:detail.lead_score
+});
 if(!honeypotHit) trackNextdoorLead();
 try{window.dispatchEvent(new CustomEvent('lead_submitted',{detail:detail}));}catch(err){}
 finish();
