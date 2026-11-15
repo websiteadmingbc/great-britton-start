@@ -201,6 +201,8 @@ section{padding:64px 0;border-top:1px solid var(--line)}
 .hero+section{border-top:0}
 section h2{font-size:clamp(2rem,5vw,3.2rem);margin:12px 0 28px}
 .section-intro{color:var(--muted);max-width:620px;margin:-12px 0 28px}
+.team-intro{max-width:none}
+@media (min-width:900px){.team-intro{white-space:nowrap}}
 .card{background:var(--panel);border:1px solid var(--line);padding:26px}
 a.card{display:block;color:inherit;text-decoration:none;cursor:pointer;transition:border-color .2s ease,background-color .2s ease}
 a.card:hover,a.card:focus-visible{border-color:var(--gold);background:#1a1e22}
@@ -417,7 +419,7 @@ footer a{display:inline-flex;align-items:center;min-height:44px}
 <div class="hero-copy">
 <div class="eyebrow">San Jose &amp; South Bay Neighbors</div>
 <h1>Kitchens &amp; baths,<br><span>built to last.</span></h1>
-<p class="lede">Licensed local general contractor. Clear ballparks up front, one point of contact.</p>
+<p class="lede">Licensed local general contractor. Clear ballparks up front. Built by a crew that shows up.</p>
 <p class="lede-offer" id="nextdoor-offer" hidden><strong>Nextdoor neighbors get a free design consult with your ballpark.</strong></p>
 <div class="ctas">
 <a class="btn" id="hero-cta-estimate" href="#ballpark" data-cta="ballpark" data-loc="hero">Get a ballpark price range</a>
@@ -498,35 +500,19 @@ footer a{display:inline-flex;align-items:center;min-height:44px}
 </div>
 </section>
 
-<!-- ===== Services ===== -->
-<section id="services">
-<div class="wrap">
-<div class="eyebrow">What we build</div>
-<h2>Home projects we take on</h2>
-<div class="grid">
-<a class="card" href="#ballpark" data-project="Kitchen" data-cta="service_card" data-loc="services"><span class="tag">01 / Kitchens</span><h3>Kitchen remodels</h3><p>Cabinets, countertops, islands, layout changes and finish work.</p></a>
-<a class="card" href="#ballpark" data-project="Bathroom" data-cta="service_card" data-loc="services"><span class="tag">02 / Bathrooms</span><h3>Bathroom remodels</h3><p>Showers, tubs, vanities, tile and layout changes.</p></a>
-<a class="card" href="#ballpark" data-project="Addition / ADU" data-cta="service_card" data-loc="services"><span class="tag">03 / ADUs</span><h3>ADUs &amp; additions</h3><p>Accessory dwelling units, additions, site coordination and construction.</p></a>
-<a class="card" href="#ballpark" data-project="Other" data-cta="service_card" data-loc="services"><span class="tag">04 / Sitework</span><h3>Retaining walls</h3><p>Strong, well-built retaining walls that add stability, function, and lasting value to your property.</p></a>
-<a class="card" href="#ballpark" data-project="Other" data-cta="service_card" data-loc="services"><span class="tag">05 / Structure</span><h3>Structural work</h3><p>Framing, foundations and engineering coordination for additions and structural changes.</p></a>
-</div>
-
-</div>
-</section>
-
 <!-- ===== Who you'll work with ===== -->
 <section id="team">
 <div class="wrap">
 <div class="eyebrow">Who you'll work with</div>
 <h2>Meet your team</h2>
-<p class="section-intro">Dylan is your first point of contact. He&rsquo;ll help you shape your project and connect you with Paul to bring it to life.</p>
+<p class="section-intro team-intro">Dylan is your first point of contact. He&rsquo;ll help you shape your project and connect you with Paul to bring it to life.</p>
 <div class="team-list">
 <div class="team">
 <img src="assets/img/dylan-simpson.jpg" alt="Dylan Simpson, Client Advisor at Great Britton Construction" width="182" height="182" loading="lazy" decoding="async">
 <div>
 <h3>Dylan Simpson</h3>
 <p class="role">Client Advisor</p>
-<p>Dylan is the single person you deal with at Great Britton from first call to final walkthrough. For more than 15 years he&rsquo;s helped people turn big ideas into clear plans. He listens for what matters, lays out the options honestly, and keeps you updated so you always know what&rsquo;s next. Paul and the crew bring the craftsmanship, and Dylan makes sure the process is just as solid. Dylan is a San Jose homeowner himself, so he knows what it means to invest in the place you live.</p>
+<p>Dylan is your first point of contact. He&rsquo;ll help you shape your project and connect you with Paul to bring it to life. For more than 15 years he&rsquo;s helped people turn big ideas into clear plans. He listens for what matters, lays out the options honestly, and keeps you updated so you always know what&rsquo;s next. Paul and the crew bring the craftsmanship, and Dylan makes sure the process is just as solid. Dylan is a San Jose homeowner himself, so he knows what it means to invest in the place you live.</p>
 </div>
 </div>
 <div class="team">
@@ -985,20 +971,6 @@ if(vis)bar.setAttribute('aria-hidden','true');else bar.removeAttribute('aria-hid
 var form=document.getElementById('inquiry-form');
 if(!form) return;
 form.setAttribute('action',FORM_ENDPOINT_URL);
-
-/* Service cards → estimate form with project type preselected */
-document.querySelectorAll('#services a.card[data-project]').forEach(function(card){
-  card.addEventListener('click',function(){
-    var val=card.getAttribute('data-project')||'';
-    var radios=form.querySelectorAll('input[name="project_type"]');
-    for(var i=0;i<radios.length;i++){
-      if(radios[i].value===val){radios[i].checked=true;break;}
-    }
-    var err=document.getElementById('e-project_type');
-    if(err) err.textContent='';
-    showStep(0,false);
-  });
-});
 
 var reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 var card=document.getElementById('inq-card');
