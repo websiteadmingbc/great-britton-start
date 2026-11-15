@@ -174,12 +174,6 @@ button.btn{font-family:inherit;cursor:pointer;border:0}
 .hero .alt-contact a{color:var(--text);font-weight:700;display:inline-block;padding:10px 2px;text-underline-offset:3px}
 .trust{display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:22px;color:#cfc9bb;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase}
 .trust b{color:var(--text)}
-.google-rating{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;width:100%;gap:6px;color:var(--text);margin:0;line-height:1}
-.google-rating-row{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap}
-.google-rating-score{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:700;font-size:clamp(3.2rem,9vw,5.5rem);letter-spacing:.02em}
-.google-rating-stars{color:var(--gold);letter-spacing:.12em;font-size:clamp(1.8rem,5vw,3rem);line-height:1}
-.google-rating-count{color:#cfc9bb;font-size:clamp(1rem,2.4vw,1.25rem);font-weight:500;letter-spacing:.04em}
-.reviews-rating{margin:8px 0 28px}
 @media (max-width:768px){
   .hero .ctas{flex-direction:column;align-items:stretch}
   .hero .ctas .btn{width:100%}
@@ -192,9 +186,14 @@ button.btn{font-family:inherit;cursor:pointer;border:0}
 }
 
 /* ===== Neighbor reviews ===== */
-.reviews-sub{color:var(--muted);margin:-12px 0 16px;max-width:560px}
-.yelp-embed{display:flex;justify-content:center}
-.yelp-embed .yelp-review,.yelp-embed iframe{max-width:100%}
+.reviews-sub{color:var(--muted);margin:-12px 0 36px;max-width:560px}
+.quote-grid{list-style:none;display:grid;gap:40px}
+@media (min-width:900px){.quote-grid{grid-template-columns:repeat(3,1fr);gap:32px}}
+.quote{margin:0;display:flex;flex-direction:column;gap:16px;height:100%}
+.quote::before{content:"\201C";font-family:"Barlow Condensed",Impact,sans-serif;font-size:clamp(3.5rem,7vw,5rem);line-height:.7;color:var(--gold);display:block}
+.quote blockquote{margin:0;flex:1;font-size:clamp(1.05rem,2.2vw,1.2rem);line-height:1.55;color:var(--text);font-weight:500}
+.quote figcaption{font-style:normal;color:var(--muted);font-size:.92rem;letter-spacing:.02em}
+.quote figcaption strong{color:var(--text);font-weight:700}
 
 /* ===== Sections ===== */
 section{padding:64px 0;border-top:1px solid var(--line)}
@@ -451,25 +450,34 @@ footer a{display:inline-flex;align-items:center;min-height:44px}
 </div>
 </section>
 
-<!-- ===== Neighbor reviews (from great-britton-paul-testimonials.html) ===== -->
+<!-- ===== Neighbor reviews ===== -->
 <section id="reviews">
 <div class="wrap">
 <div class="eyebrow">Reviews</div>
 <h2>What homeowners say about working with Paul</h2>
-<p class="reviews-sub">Reviews from our customers on Google and Yelp</p>
-<p class="google-rating reviews-rating" aria-label="5.0 out of 5 stars from 3 Google reviews">
-<span class="google-rating-row">
-<span class="google-rating-score">5.0</span>
-<span class="google-rating-stars" aria-hidden="true">★★★★★</span>
-</span>
-<span class="google-rating-count">3 Google reviews</span>
-</p>
-<div class="yelp-embed">
-<span class="yelp-review" data-review-id="0oWVzuZEDrCyrBkBzYHwgw" data-hostname="www.yelp.com">Read <a href="https://www.yelp.com/user_details?userid=UZJZ7iq0wkCbFZiWC-wvlg" target="_blank" rel="nofollow noopener">Sylvester G.</a>'s <a href="https://www.yelp.com/biz/great-britton-construction-san-jose?hrid=0oWVzuZEDrCyrBkBzYHwgw" target="_blank" rel="nofollow noopener">review</a> of <a href="https://www.yelp.com/biz/jUns1hwzKcQGaskE_fdPRQ" target="_blank" rel="nofollow noopener">Great Britton Construction</a> on <a href="https://www.yelp.com" target="_blank" rel="nofollow noopener">Yelp</a></span>
-</div>
+<p class="reviews-sub">Reviews from our customers on Yelp</p>
+<ul class="quote-grid">
+<li>
+<figure class="quote">
+<blockquote>Had two great experiences working with Paul from Great Britton. First they renovated my shower, which had been leaking unbeknownst to me for years.</blockquote>
+<figcaption><strong>Sylvester G.</strong>, via Yelp</figcaption>
+</figure>
+</li>
+<li>
+<figure class="quote">
+<blockquote>Paid extra attention to what I wanted, and helped me resolve my construction needs in a timely and efficient manner and within budget.</blockquote>
+<figcaption><strong>Ajay V.</strong>, via Yelp</figcaption>
+</figure>
+</li>
+<li>
+<figure class="quote">
+<blockquote>Exceeded our expectations with their professionalism, attention to detail, quality of work, and very reasonable rates.</blockquote>
+<figcaption><strong>Diana A.</strong>, via Yelp</figcaption>
+</figure>
+</li>
+</ul>
 </div>
 </section>
-<script async src="https://www.yelp.com/embed/widgets.js"></script>
 
 <!-- ===== Recent projects ===== -->
 <section id="projects" aria-labelledby="projects-h">
