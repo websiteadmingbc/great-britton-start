@@ -1089,11 +1089,7 @@ function leadScore(){return 'warm';}
 btnNext.addEventListener('click',function(){
   if(!validateStep(0)) return;
   track('form_step_complete',{step:1});
-  track('ballpark_step1_complete',{
-    project_type:radioVal('project_type'),
-    project_size:radioVal('project_size'),
-    finish_level:radioVal('finish_level')
-  });
+  track('ballpark_step1_complete',{project_type:radioVal('project_type')});
   showStep(1,true);
 });
 btnBack.addEventListener('click',function(){showStep(0,true);});
@@ -1141,11 +1137,7 @@ busy(btnSubmit,true,SUBMIT_LABEL);
 post(fd).then(function(){
 busy(btnSubmit,false,SUBMIT_LABEL);
 track('form_step_complete',{step:2});
-track('ballpark_form_submit',{
-  project_type:detail.project_type,
-  project_size:detail.project_size,
-  finish_level:detail.finish_level
-});
+track('ballpark_form_submit',{project_type:detail.project_type});
 track('generate_lead',{
   form:'start_inquiry',
   project_type:detail.project_type,
