@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preload" as="image" type="image/webp" href="assets/img/hero-bath-960.webp" imagesrcset="assets/img/hero-bath-640.webp 640w, assets/img/hero-bath-960.webp 960w" imagesizes="100vw" media="(max-width: 899px)" fetchpriority="high">
+<link rel="preload" as="image" type="image/webp" href="assets/img/hero-bath-960.webp" imagesrcset="assets/img/hero-bath-640.webp 640w, assets/img/hero-bath-960.webp 960w, assets/img/hero-bath-1280.webp 1280w" imagesizes="46vw" media="(min-width: 900px)" fetchpriority="high">
 <title>San Jose Kitchen &amp; Bath Remodels | Great Britton Construction</title>
 <meta name="description" content="Kitchen and bathroom remodels from a local San Jose team that shows up, communicates, and does it right the first time. Also additions and ADUs. CSLB #1025488.">
 <meta name="robots" content="noindex,nofollow">
@@ -62,13 +64,15 @@
        src="https://flask.nextdoor.com/pixel?pid=3c34b435-777d-4899-a334-66aacd42cb5c&ev=PAGE_VIEW&noscript=1" alt="">
   </noscript>
   <!-- End Nextdoor Pixel Code -->
-  <!-- Microsoft Clarity -->
-  <script type="text/javascript">
+  <!-- Microsoft Clarity (deferred so it doesn't compete with LCP) -->
+  <script>
+  window.addEventListener('load', function () {
     (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "zdlbvxg5lz");
+  });
   </script>
 <link rel="icon" href="https://greatbrittongc.com/assets/great-britton-logo.png">
 <script type="application/ld+json">
@@ -128,10 +132,10 @@
   ]
 }
 </script>
-<link rel="preload" as="image" href="assets/img/hero-bath-960.jpg" imagesrcset="assets/img/hero-bath-640.jpg 640w, assets/img/hero-bath-960.jpg 960w, assets/img/hero-bath-1280.jpg 1280w" imagesizes="(min-width: 900px) 46vw, 100vw" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=DM+Sans:wght@400;500;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet"></noscript>
 <script>document.documentElement.className+=' js';</script>
 <script src="assets/supabase-config.js" defer></script>
 <script src="assets/visit-tracker.js" defer></script>
@@ -437,7 +441,12 @@ footer a{display:inline-flex;align-items:center;min-height:44px}
 </div>
 </div>
 <figure class="hero-media">
-<img src="assets/img/hero-bath-960.jpg" srcset="assets/img/hero-bath-640.jpg 640w, assets/img/hero-bath-960.jpg 960w, assets/img/hero-bath-1280.jpg 1280w" sizes="(min-width: 900px) 46vw, 100vw" width="960" height="1280" alt="Remodeled bathroom with dark stone tile, glass shower and freestanding tub" loading="eager" fetchpriority="high">
+<picture>
+<source media="(max-width: 899px)" type="image/webp" srcset="assets/img/hero-bath-640.webp 640w, assets/img/hero-bath-960.webp 960w" sizes="100vw">
+<source media="(max-width: 899px)" srcset="assets/img/hero-bath-640.jpg 640w, assets/img/hero-bath-960.jpg 960w" sizes="100vw">
+<source type="image/webp" srcset="assets/img/hero-bath-640.webp 640w, assets/img/hero-bath-960.webp 960w, assets/img/hero-bath-1280.webp 1280w" sizes="46vw">
+<img src="assets/img/hero-bath-960.jpg" srcset="assets/img/hero-bath-640.jpg 640w, assets/img/hero-bath-960.jpg 960w, assets/img/hero-bath-1280.jpg 1280w" sizes="(min-width: 900px) 46vw, 100vw" width="960" height="1280" alt="Remodeled bathroom with dark stone tile, glass shower and freestanding tub" loading="eager" fetchpriority="high" decoding="sync">
+</picture>
 </figure>
 </div>
 </div>
@@ -496,8 +505,9 @@ footer a{display:inline-flex;align-items:center;min-height:44px}
 </div>
 <div role="tabpanel" id="panel-kitchens" aria-labelledby="tab-kitchens">
 <ul class="proj-grid">
-<li><figure><button type="button" class="proj" data-full="assets/img/gbc-new-063-1600.jpg" data-w="1200" data-h="1600"><img src="assets/img/gbc-new-063-640.jpg" width="640" height="853" alt="Remodeled kitchen with dark waterfall island and backyard view" loading="lazy" decoding="async"><span class="sr-only"> (open larger photo)</span></button><figcaption>Waterfall island &middot; San Jose</figcaption></figure></li>
-<li><figure><button type="button" class="proj" data-full="assets/img/project-photo-35-1600.jpg" data-w="1200" data-h="1600"><img src="assets/img/project-photo-35-640.jpg" width="640" height="853" alt="Remodeled kitchen with marble waterfall island" loading="lazy" decoding="async"><span class="sr-only"> (open larger photo)</span></button><figcaption>Marble waterfall island &middot; Los Gatos</figcaption></figure></li>
+<li><figure><button type="button" class="proj" data-full="assets/img/kitchen-white-gray-sunnyvale-1600.jpg" data-w="640" data-h="480"><img src="assets/img/kitchen-white-gray-sunnyvale-640.jpg" width="640" height="480" alt="White and gray kitchen remodel with dark stone counters and white shaker cabinets" loading="lazy" decoding="async"><span class="sr-only"> (open larger photo)</span></button><figcaption>White &amp; gray kitchen remodel &middot; Sunnyvale</figcaption></figure></li>
+<li><figure><button type="button" class="proj" data-full="assets/img/gbc-new-063-1600.jpg" data-w="1200" data-h="1600"><img src="assets/img/gbc-new-063-640.jpg" width="640" height="853" alt="Remodeled kitchen with dark waterfall island and backyard view" loading="lazy" decoding="async"><span class="sr-only"> (open larger photo)</span></button><figcaption>Dark stone waterfall island &middot; San Jose</figcaption></figure></li>
+<li><figure><button type="button" class="proj" data-full="assets/img/project-photo-35-1600.jpg" data-w="1200" data-h="1600"><img src="assets/img/project-photo-35-640.jpg" width="640" height="853" alt="Remodeled kitchen with marble waterfall island" loading="lazy" decoding="async"><span class="sr-only"> (open larger photo)</span></button><figcaption>White stone waterfall island &middot; Los Gatos</figcaption></figure></li>
 <li><figure><button type="button" class="proj" data-full="assets/img/gbc-new-010-1600.jpg" data-w="1200" data-h="1600"><img src="assets/img/gbc-new-010-640.jpg" width="640" height="853" alt="Modern kitchen with dark island and bar stools" loading="lazy" decoding="async"><span class="sr-only"> (open larger photo)</span></button><figcaption>Dark island kitchen &middot; Saratoga</figcaption></figure></li>
 </ul>
 </div>
